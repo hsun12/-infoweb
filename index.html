@@ -10,551 +10,1527 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   顏色
+========================================================= */
+
 :root{
   color-scheme:light;
+
   --bg:#edf3ef;
   --card:#fff;
   --ink:#10231d;
   --mute:#586c64;
   --line:#d9e4de;
   --chip:#eef4f0;
+
   --brand:#0f6b52;
   --on-brand:#fff;
+
   --hero1:#0a5441;
   --hero2:#12805f;
+
   --l1:#2a9fbf;
   --l2:#d99a14;
   --l3:#d4493d;
-  --shadow:0 6px 24px rgba(16,35,29,.10)
+
+  --shadow:0 6px 24px rgba(16,35,29,.10);
 }
+
+
+/* =========================================================
+   深色模式
+========================================================= */
 
 :root[data-theme="dark"]{
   color-scheme:dark;
+
   --bg:#0a1310;
   --card:#12201b;
   --ink:#e8f1ed;
   --mute:#8fa69e;
   --line:#233830;
   --chip:#192a24;
+
   --brand:#3cc79a;
   --on-brand:#06201a;
+
   --hero1:#0c3a2d;
   --hero2:#0a2a21;
+
   --l1:#4cbbdb;
   --l2:#f0b429;
   --l3:#ef6b5e;
-  --shadow:0 6px 24px rgba(0,0,0,.45)
+
+  --shadow:0 6px 24px rgba(0,0,0,.45);
 }
 
+
 @media (prefers-color-scheme:dark){
+
   :root:not([data-theme]){
     color-scheme:dark;
+
     --bg:#0a1310;
     --card:#12201b;
     --ink:#e8f1ed;
     --mute:#8fa69e;
     --line:#233830;
     --chip:#192a24;
+
     --brand:#3cc79a;
     --on-brand:#06201a;
+
     --hero1:#0c3a2d;
     --hero2:#0a2a21;
+
     --l1:#4cbbdb;
     --l2:#f0b429;
     --l3:#ef6b5e;
-    --shadow:0 6px 24px rgba(0,0,0,.45)
+
+    --shadow:0 6px 24px rgba(0,0,0,.45);
   }
+
 }
 
+
+/* =========================================================
+   基本
+========================================================= */
+
 *{
-  box-sizing:border-box
+  box-sizing:border-box;
+}
+
+html{
+  overflow-x:hidden;
 }
 
 body{
   margin:0;
   background:var(--bg);
   color:var(--ink);
-  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
-  line-height:1.5
+
+  font-family:
+    "Noto Sans TC",
+    "PingFang TC",
+    "Microsoft JhengHei",
+    sans-serif;
+
+  line-height:1.5;
+
+  overflow-x:hidden;
 }
 
 button{
-  font-family:inherit
+  font-family:inherit;
 }
 
-/* =========================
+
+/* =========================================================
    頁首
-========================= */
+========================================================= */
 
 .hero{
   position:relative;
   overflow:hidden;
+
   color:#fff;
-  background:linear-gradient(135deg,var(--hero1),var(--hero2));
-  padding:22px 20px 76px
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--hero1),
+      var(--hero2)
+    );
+
+  padding:22px 20px 76px;
 }
+
 
 .hero svg{
   position:absolute;
+
   right:-30px;
   top:-14px;
+
   height:calc(100% + 28px);
   width:auto;
+
   opacity:.9;
-  pointer-events:none
+
+  pointer-events:none;
 }
+
 
 .hero-in{
   position:relative;
+
   max-width:1240px;
-  margin:0 auto
+
+  margin:0 auto;
 }
+
 
 .bar{
   display:flex;
-  justify-content:flex-end
+  justify-content:flex-end;
 }
+
 
 .theme{
   display:flex;
   align-items:center;
+
   gap:10px;
+
   font-size:14px;
-  color:rgba(255,255,255,.88)
+
+  color:rgba(255,255,255,.88);
 }
+
 
 h1{
   margin:14px 0 6px;
-  font-size:clamp(34px,6vw,56px);
+
+  font-size:clamp(
+    34px,
+    6vw,
+    56px
+  );
+
   font-weight:900;
+
   letter-spacing:.06em;
-  line-height:1.1
+
+  line-height:1.1;
 }
+
 
 .sub{
   margin:0;
+
   max-width:34em;
-  color:rgba(255,255,255,.82)
+
+  color:rgba(255,255,255,.82);
 }
+
+
+/* =========================================================
+   深色模式開關
+========================================================= */
 
 .switch{
   position:relative;
+
   width:51px;
   height:31px;
+
   border:0;
+
   border-radius:999px;
+
   background:rgba(255,255,255,.28);
+
   cursor:pointer;
+
   padding:0;
-  transition:background .25s
+
+  transition:background .25s;
 }
+
 
 .switch::after{
   content:"";
+
   position:absolute;
+
   top:2px;
   left:2px;
+
   width:27px;
   height:27px;
+
   border-radius:50%;
+
   background:#fff;
-  box-shadow:0 2px 4px rgba(0,0,0,.3);
-  transition:transform .25s
+
+  box-shadow:
+    0 2px 4px rgba(0,0,0,.3);
+
+  transition:transform .25s;
 }
+
 
 .switch[aria-checked=true]{
-  background:#34c759
+  background:#34c759;
 }
 
+
 .switch[aria-checked=true]::after{
-  transform:translateX(20px)
+  transform:translateX(20px);
 }
+
+
+/* =========================================================
+   Focus
+========================================================= */
 
 .switch:focus-visible,
 .chip:focus-visible,
 button.cls:focus-visible{
   outline:2px solid var(--brand);
-  outline-offset:2px
+  outline-offset:2px;
 }
+
 
 .switch:focus-visible{
-  outline-color:#fff
+  outline-color:#fff;
 }
 
-/* =========================
-   篩選
-========================= */
+
+/* =========================================================
+   主內容
+========================================================= */
 
 .wrap{
   max-width:1240px;
+
   margin:-48px auto 0;
-  padding:0 16px 56px;
-  position:relative
+
+  padding:
+    0 16px 56px;
+
+  position:relative;
 }
+
+
+/* =========================================================
+   篩選器
+========================================================= */
 
 .filters{
   background:var(--card);
+
   border:1px solid var(--line);
+
   border-radius:18px;
+
   box-shadow:var(--shadow);
-  padding:18px 20px
+
+  padding:18px 20px;
 }
+
 
 .gs{
   display:grid;
-  gap:12px
+
+  gap:12px;
 }
+
 
 .row{
   display:flex;
+
   flex-wrap:wrap;
+
   align-items:center;
-  gap:8px
+
+  gap:8px;
 }
+
 
 .row b{
   width:44px;
+
+  flex:0 0 44px;
+
   font-size:14px;
-  font-weight:700
+
+  font-weight:700;
 }
+
 
 .chip{
   border:1px solid transparent;
+
   background:var(--chip);
+
   color:var(--ink);
+
   padding:6px 15px;
+
   border-radius:999px;
+
   font-size:14px;
+
   cursor:pointer;
-  transition:background .15s,color .15s
+
+  transition:
+    background .15s,
+    color .15s,
+    border-color .15s;
 }
 
+
 .chip:hover{
-  border-color:var(--line)
+  border-color:var(--line);
 }
+
 
 .chip[aria-pressed=true]{
   background:var(--brand);
+
   color:var(--on-brand);
-  font-weight:700
+
+  font-weight:700;
 }
+
+
+/* =========================================================
+   地區
+========================================================= */
 
 #dist{
-  margin-top:12px
+  margin-top:12px;
 }
 
+
 #distBtn[aria-expanded=true]{
-  border-color:var(--brand)
+  border-color:var(--brand);
 }
+
 
 .panel{
   margin-top:10px;
+
   padding:12px;
+
   background:var(--chip);
-  border-radius:12px
+
+  border-radius:12px;
 }
 
+
 .panel[hidden]{
-  display:none
+  display:none;
 }
+
 
 .opts{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(104px,1fr));
-  gap:8px
+
+  grid-template-columns:
+    repeat(
+      auto-fill,
+      minmax(104px,1fr)
+    );
+
+  gap:8px;
 }
+
 
 .opt{
   display:flex;
+
   align-items:center;
+
   gap:7px;
+
   padding:7px 10px;
+
   background:var(--card);
+
   border:1px solid var(--line);
+
   border-radius:10px;
+
   font-size:14px;
-  cursor:pointer
+
+  cursor:pointer;
 }
+
 
 .opt input{
   accent-color:var(--brand);
+
   width:16px;
   height:16px;
-  margin:0
+
+  margin:0;
+
+  flex:0 0 auto;
 }
+
 
 .opt:has(input:checked){
   border-color:var(--brand);
-  font-weight:700
+
+  font-weight:700;
 }
+
 
 .panel .hint{
   margin:10px 0 0;
+
   font-size:13px;
-  color:var(--mute)
+
+  color:var(--mute);
 }
+
+
+#distClear{
+  white-space:nowrap;
+}
+
+
+/* =========================================================
+   數量
+========================================================= */
 
 .count{
   margin:22px 4px 12px;
+
   font-size:15px;
-  color:var(--mute)
+
+  color:var(--mute);
 }
+
 
 .count b{
   color:var(--ink);
+
   font-size:20px;
-  font-family:"Barlow Condensed",sans-serif;
-  margin:0 3px
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  margin:0 3px;
 }
 
-/* =========================
+
+/* =========================================================
    週曆
-========================= */
+========================================================= */
 
 .week{
+
   display:grid;
+
   grid-auto-flow:column;
-  grid-auto-columns:minmax(172px,1fr);
+
+  /*
+    桌機：
+    依空間自動分配
+  */
+  grid-auto-columns:
+    minmax(
+      172px,
+      1fr
+    );
+
   gap:12px;
+
   overflow-x:auto;
-  padding:2px 2px 12px;
-  scroll-snap-type:x proximity
+
+  padding:
+    2px 2px 12px;
+
+  scroll-snap-type:
+    x proximity;
+
+  scrollbar-width:thin;
+
+  overscroll-behavior-x:contain;
 }
+
 
 .day{
   scroll-snap-align:start;
+
   min-height:220px;
+
   border-radius:16px;
-  background:color-mix(in srgb,var(--card) 55%,transparent);
+
+  background:
+    color-mix(
+      in srgb,
+      var(--card) 55%,
+      transparent
+    );
+
   border:1px solid var(--line);
-  overflow:hidden
+
+  overflow:hidden;
+
+  min-width:0;
 }
+
 
 .day h2{
+
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
+
+  gap:8px;
+
   margin:0;
+
   padding:12px 14px;
+
   font-size:17px;
+
   font-weight:900;
+
   background:var(--card);
-  border-bottom:1px solid var(--line)
+
+  border-bottom:1px solid var(--line);
 }
+
 
 .day.today{
+
   border-color:var(--brand);
-  box-shadow:0 0 0 1px var(--brand)
+
+  box-shadow:
+    0 0 0 1px var(--brand);
 }
+
 
 .day.today h2{
+
   background:var(--brand);
-  color:var(--on-brand)
+
+  color:var(--on-brand);
 }
+
 
 .today-tag{
+
   font-size:12px;
+
   font-weight:700;
+
   padding:1px 9px;
+
   border-radius:999px;
-  background:rgba(255,255,255,.25)
+
+  background:rgba(255,255,255,.25);
+
+  flex-shrink:0;
 }
+
 
 .list{
+
   padding:10px;
+
   display:grid;
-  gap:10px
+
+  gap:10px;
 }
+
+
+/* =========================================================
+   球團卡片
+========================================================= */
 
 button.cls{
+
   width:100%;
+
+  min-width:0;
+
   text-align:left;
+
   color:inherit;
+
   background:var(--card);
+
   border:1px solid var(--line);
+
   border-radius:12px;
+
   padding:11px 12px 10px;
+
   cursor:pointer;
+
   display:grid;
+
   gap:2px;
-  transition:transform .15s,box-shadow .15s,border-color .15s
+
+  transition:
+    transform .15s,
+    box-shadow .15s,
+    border-color .15s;
 }
+
 
 button.cls:hover{
+
   transform:translateY(-2px);
+
   box-shadow:var(--shadow);
-  border-color:var(--c)
+
+  border-color:var(--c);
 }
+
 
 .cls .t{
-  font-family:"Barlow Condensed","Noto Sans TC",sans-serif;
+
+  font-family:
+    "Barlow Condensed",
+    "Noto Sans TC",
+    sans-serif;
+
   font-weight:700;
+
   font-size:22px;
+
   line-height:1.1;
-  letter-spacing:.02em
+
+  letter-spacing:.02em;
+
+  white-space:nowrap;
 }
+
 
 .cls .n{
-  font-weight:700
+
+  font-weight:700;
+
+  overflow-wrap:anywhere;
 }
+
 
 .cls .p{
+
   font-size:13px;
-  color:var(--mute)
+
+  color:var(--mute);
+
+  overflow-wrap:anywhere;
 }
+
 
 .cls .l{
+
   margin-top:6px;
+
   font-size:12px;
+
   font-weight:700;
+
   color:var(--c);
+
   display:flex;
+
   align-items:center;
-  gap:6px
+
+  gap:6px;
+
+  overflow-wrap:anywhere;
 }
+
 
 .cls .l::before{
+
   content:"";
+
   width:8px;
   height:8px;
+
+  flex:0 0 8px;
+
   border-radius:50%;
-  background:var(--c)
+
+  background:var(--c);
 }
+
 
 .empty{
+
   color:var(--mute);
+
   font-size:13px;
-  padding:8px 4px
+
+  padding:8px 4px;
 }
+
 
 .none{
+
   padding:56px 0;
+
   text-align:center;
-  color:var(--mute)
+
+  color:var(--mute);
 }
 
-/* =========================
+
+/* =========================================================
    詳細視窗
-========================= */
+========================================================= */
 
 dialog{
+
   border:0;
+
   border-radius:20px;
+
   background:var(--card);
+
   color:var(--ink);
+
   padding:0;
-  width:min(440px,calc(100% - 32px));
-  box-shadow:0 20px 60px rgba(0,0,0,.35);
-  overflow:hidden
+
+  width:min(
+    440px,
+    calc(100% - 32px)
+  );
+
+  max-height:
+    calc(100dvh - 32px);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.35);
+
+  overflow:auto;
 }
+
 
 dialog::backdrop{
-  background:rgba(5,15,11,.55);
-  backdrop-filter:blur(3px)
+
+  background:
+    rgba(5,15,11,.55);
+
+  backdrop-filter:blur(3px);
 }
+
 
 .dlg .head{
+
   padding:20px 22px 16px;
-  border-top:6px solid var(--c)
+
+  border-top:6px solid var(--c);
 }
+
 
 .dlg h3{
+
   margin:0;
+
   font-size:22px;
-  font-weight:900
+
+  font-weight:900;
+
+  overflow-wrap:anywhere;
 }
+
 
 .dlg .when{
+
   margin-top:4px;
-  font-family:"Barlow Condensed","Noto Sans TC",sans-serif;
+
+  font-family:
+    "Barlow Condensed",
+    "Noto Sans TC",
+    sans-serif;
+
   font-size:26px;
+
   font-weight:700;
-  color:var(--brand)
+
+  color:var(--brand);
+
+  overflow-wrap:anywhere;
 }
+
 
 .dlg dl{
+
   margin:0;
+
   padding:0 22px;
+
   display:grid;
+
   grid-template-columns:52px 1fr;
+
   gap:12px 8px;
-  font-size:15px
+
+  font-size:15px;
 }
+
 
 .dlg dt{
-  color:var(--mute)
+
+  color:var(--mute);
+
+  white-space:nowrap;
 }
+
 
 .dlg dd{
+
   margin:0;
-  word-break:break-all
+
+  word-break:break-word;
+
+  overflow-wrap:anywhere;
 }
+
 
 .badge{
+
   display:inline-block;
+
   padding:1px 11px;
+
   border-radius:999px;
+
   color:#fff;
+
   font-size:13px;
-  font-weight:700
+
+  font-weight:700;
 }
+
 
 .dlg a.lnk{
-  color:var(--brand)
+
+  color:var(--brand);
+
+  overflow-wrap:anywhere;
 }
 
+
 .dlg .acts{
+
   display:flex;
+
   gap:10px;
-  padding:22px
+
+  padding:22px;
 }
+
 
 .dlg .acts a,
 .dlg .acts button{
+
   flex:1;
+
+  min-width:0;
+
   text-align:center;
+
   padding:11px;
+
   border-radius:12px;
+
   font-size:15px;
+
   font-weight:700;
+
   cursor:pointer;
-  text-decoration:none
+
+  text-decoration:none;
 }
+
 
 .dlg .acts a{
+
   background:var(--brand);
+
   color:var(--on-brand);
-  border:0
+
+  border:0;
 }
+
 
 .dlg .acts button{
+
   background:var(--chip);
+
   color:var(--ink);
-  border:0
+
+  border:0;
 }
 
-@media (prefers-reduced-motion:reduce){
-  *{
-    transition:none!important
+
+/* =========================================================
+   平板 RWD
+========================================================= */
+
+@media (max-width:900px){
+
+  .hero{
+    padding:
+      20px 18px 68px;
   }
+
+
+  .wrap{
+    padding-left:14px;
+    padding-right:14px;
+  }
+
+
+  .filters{
+    padding:16px;
+  }
+
+
+  /*
+    平板時每一天稍微縮小
+  */
+
+  .week{
+    grid-auto-columns:
+      minmax(
+        220px,
+        30vw
+      );
+  }
+
 }
+
+
+/* =========================================================
+   手機 RWD
+========================================================= */
+
+@media (max-width:600px){
+
+  /* ---------- 頁首 ---------- */
+
+  .hero{
+
+    padding:
+      16px 16px 60px;
+  }
+
+
+  .hero svg{
+
+    right:-70px;
+
+    opacity:.55;
+  }
+
+
+  .theme{
+
+    font-size:13px;
+
+    gap:8px;
+  }
+
+
+  .switch{
+
+    width:47px;
+
+    height:28px;
+  }
+
+
+  .switch::after{
+
+    width:24px;
+
+    height:24px;
+  }
+
+
+  .switch[aria-checked=true]::after{
+
+    transform:translateX(19px);
+  }
+
+
+  h1{
+
+    margin-top:18px;
+
+    font-size:
+      clamp(
+        36px,
+        12vw,
+        48px
+      );
+  }
+
+
+  .sub{
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    max-width:100%;
+  }
+
+
+  /* ---------- 主內容 ---------- */
+
+  .wrap{
+
+    margin-top:-38px;
+
+    padding:
+      0 10px 40px;
+  }
+
+
+  /* ---------- 篩選器 ---------- */
+
+  .filters{
+
+    border-radius:16px;
+
+    padding:14px;
+  }
+
+
+  .gs{
+
+    gap:14px;
+  }
+
+
+  .row{
+
+    gap:6px;
+  }
+
+
+  .row b{
+
+    width:100%;
+
+    flex-basis:100%;
+
+    margin-bottom:2px;
+  }
+
+
+  .chip{
+
+    padding:
+      6px 12px;
+
+    font-size:13px;
+  }
+
+
+  /*
+    強度按鈕比較多，
+    手機讓它們自然換行
+  */
+
+  #filters .row{
+
+    align-items:flex-start;
+  }
+
+
+  /* ---------- 地區 ---------- */
+
+  #dist{
+
+    margin-top:14px;
+  }
+
+
+  #dist .row{
+
+    align-items:center;
+  }
+
+
+  #dist .row b{
+
+    width:44px;
+
+    flex:0 0 44px;
+
+    margin:0;
+  }
+
+
+  #distBtn{
+
+    flex:1;
+
+    text-align:left;
+
+    min-width:0;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+  }
+
+
+  .panel{
+
+    padding:10px;
+  }
+
+
+  .opts{
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+
+    gap:7px;
+  }
+
+
+  .opt{
+
+    min-width:0;
+
+    padding:8px;
+
+    font-size:13px;
+  }
+
+
+  .panel .hint{
+
+    font-size:12px;
+
+    line-height:1.6;
+  }
+
+
+  /* ---------- 數量 ---------- */
+
+  .count{
+
+    margin:
+      18px 4px 10px;
+
+    font-size:14px;
+  }
+
+
+  /* ---------- 週曆 ---------- */
+
+  .week{
+
+    /*
+      手機：
+      一次看到約 1 個多一點的日期，
+      明確提示使用者可以左右滑
+    */
+
+    grid-auto-columns:
+      minmax(
+        82vw,
+        82vw
+      );
+
+    gap:10px;
+
+    padding:
+      2px 2px 14px;
+
+    scroll-snap-type:
+      x mandatory;
+  }
+
+
+  .day{
+
+    min-height:auto;
+
+    border-radius:14px;
+  }
+
+
+  .day h2{
+
+    padding:
+      10px 12px;
+
+    font-size:16px;
+  }
+
+
+  .list{
+
+    padding:9px;
+
+    gap:8px;
+  }
+
+
+  /* ---------- 球團卡片 ---------- */
+
+  button.cls{
+
+    padding:
+      11px 11px 10px;
+
+    border-radius:11px;
+  }
+
+
+  .cls .t{
+
+    font-size:23px;
+  }
+
+
+  .cls .n{
+
+    font-size:14px;
+
+    line-height:1.45;
+  }
+
+
+  .cls .p{
+
+    font-size:12px;
+
+    line-height:1.5;
+  }
+
+
+  .cls .l{
+
+    font-size:12px;
+
+    margin-top:5px;
+  }
+
+
+  /* ---------- 詳細視窗 ---------- */
+
+  dialog{
+
+    width:
+      calc(100% - 20px);
+
+    max-width:none;
+
+    max-height:
+      calc(100dvh - 20px);
+
+    border-radius:17px;
+  }
+
+
+  .dlg .head{
+
+    padding:
+      17px 17px 14px;
+  }
+
+
+  .dlg h3{
+
+    font-size:20px;
+
+    line-height:1.4;
+  }
+
+
+  .dlg .when{
+
+    font-size:23px;
+  }
+
+
+  .dlg dl{
+
+    padding:
+      0 17px;
+
+    grid-template-columns:
+      45px 1fr;
+
+    gap:
+      10px 7px;
+
+    font-size:14px;
+  }
+
+
+  .dlg .acts{
+
+    padding:17px;
+
+    gap:8px;
+  }
+
+
+  .dlg .acts a,
+  .dlg .acts button{
+
+    padding:10px 8px;
+
+    font-size:14px;
+  }
+
+}
+
+
+/* =========================================================
+   超小手機
+========================================================= */
+
+@media (max-width:380px){
+
+  .hero{
+
+    padding:
+      14px 13px 56px;
+  }
+
+
+  .wrap{
+
+    margin-top:-34px;
+
+    padding:
+      0 8px 32px;
+  }
+
+
+  .filters{
+
+    padding:12px;
+  }
+
+
+  .chip{
+
+    padding:
+      5px 10px;
+
+    font-size:12px;
+  }
+
+
+  .opts{
+
+    gap:6px;
+  }
+
+
+  .opt{
+
+    padding:
+      7px;
+
+    font-size:12px;
+  }
+
+
+  .week{
+
+    grid-auto-columns:
+      88vw;
+  }
+
+
+  .cls .t{
+
+    font-size:21px;
+  }
+
+
+  .dlg dl{
+
+    grid-template-columns:
+      42px 1fr;
+
+    font-size:13px;
+  }
+
+}
+
+
+/* =========================================================
+   減少動畫
+========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+  *{
+
+    transition:none!important;
+
+    scroll-behavior:auto!important;
+  }
+
+}
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =======================================================
+     頁首
+======================================================== -->
 
 <header class="hero">
 
-  <svg viewBox="0 0 300 144" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="2" aria-hidden="true">
-    <rect x="10" y="8" width="280" height="128"/>
-    <path d="M10 17.6H290M10 126.4H290M150 8V136M109 8V136M191 8V136M26 8V136M274 8V136M10 72H109M191 72H290"/>
+  <svg
+    viewBox="0 0 300 144"
+    fill="none"
+    stroke="#fff"
+    stroke-opacity=".2"
+    stroke-width="2"
+    aria-hidden="true">
+
+    <rect
+      x="10"
+      y="8"
+      width="280"
+      height="128"/>
+
+    <path
+      d="
+        M10 17.6H290
+        M10 126.4H290
+        M150 8V136
+        M109 8V136
+        M191 8V136
+        M26 8V136
+        M274 8V136
+        M10 72H109
+        M191 72H290
+      "/>
+
   </svg>
+
 
   <div class="hero-in">
 
     <div class="bar">
+
       <div class="theme">
-        <span>☾ 深色模式</span>
+
+        <span>
+          ☾ 深色模式
+        </span>
+
         <button
           class="switch"
           id="themeSwitch"
@@ -562,50 +1538,96 @@ dialog::backdrop{
           aria-checked="false"
           aria-label="深色模式">
         </button>
+
       </div>
+
     </div>
 
-    <h1>羽球開團</h1>
+
+    <h1>
+      羽球開團
+    </h1>
+
 
     <p class="sub">
       桃園各區球敘 大家一起打羽球🏸
     </p>
 
   </div>
+
 </header>
 
 
+
+<!-- =======================================================
+     主內容
+======================================================== -->
+
 <main class="wrap">
+
+
+  <!-- 篩選器 -->
 
   <div class="filters">
 
-    <div class="gs" id="filters"></div>
+    <div
+      class="gs"
+      id="filters">
+    </div>
+
+
+    <!-- 地區 -->
 
     <div id="dist">
 
       <div class="row">
-        <b>地區</b>
+
+        <b>
+          地區
+        </b>
+
+
         <button
           class="chip"
           id="distBtn"
           aria-expanded="false"
           aria-controls="distPanel">
+
           全部地區 ▾
+
         </button>
+
       </div>
 
-      <div class="panel" id="distPanel" hidden>
 
-        <div class="opts" id="distOpts"></div>
+      <div
+        class="panel"
+        id="distPanel"
+        hidden>
+
+        <div
+          class="opts"
+          id="distOpts">
+        </div>
+
 
         <p class="hint">
+
           可勾選一個或多個地區；都不勾選則顯示全部。
+
           <button
             class="chip"
             id="distClear"
-            style="margin-left:6px;padding:2px 12px;background:var(--card)">
+            style="
+              margin-left:6px;
+              padding:2px 12px;
+              background:var(--card);
+            ">
+
             清除
+
           </button>
+
         </p>
 
       </div>
@@ -614,17 +1636,37 @@ dialog::backdrop{
 
   </div>
 
-  <div class="count" id="count"></div>
 
-  <div class="week" id="week"></div>
+  <!-- 團數 -->
+
+  <div
+    class="count"
+    id="count">
+  </div>
+
+
+  <!-- 週曆 -->
+
+  <div
+    class="week"
+    id="week">
+  </div>
+
 
 </main>
 
 
+
+<!-- =======================================================
+     詳細視窗
+======================================================== -->
+
 <dialog id="dlg"></dialog>
 
 
+
 <script>
+
 
 /* =========================================================
    開團資料
@@ -633,6 +1675,7 @@ dialog::backdrop{
 const classes = [
 
   // ===== QQ梅子飯團 =====
+
   {
     day:6,
     time:"14:00-17:00",
@@ -644,7 +1687,9 @@ const classes = [
     url:"缺"
   },
 
+
   // ===== 巧鬍羽球 =====
+
   {
     day:1,
     time:"19:00-22:00",
@@ -655,6 +1700,7 @@ const classes = [
     place:"龍潭中豐羽球館",
     url:"缺"
   },
+
 
   {
     day:5,
@@ -667,7 +1713,9 @@ const classes = [
     url:"缺"
   },
 
+
   // ===== Sherry 排點團 =====
+
   {
     day:2,
     time:"19:00-22:00",
@@ -679,6 +1727,7 @@ const classes = [
     url:"缺"
   },
 
+
   {
     day:6,
     time:"09:00-12:00",
@@ -689,6 +1738,7 @@ const classes = [
     place:"龍潭中豐羽球館",
     url:"缺"
   },
+
 
   {
     day:6,
@@ -701,6 +1751,7 @@ const classes = [
     url:"缺"
   },
 
+
   {
     day:7,
     time:"09:00-12:00",
@@ -712,6 +1763,7 @@ const classes = [
     url:"缺"
   },
 
+
   {
     day:7,
     time:"14:00-17:00",
@@ -722,8 +1774,10 @@ const classes = [
     place:"龍潭中豐羽球館",
     url:"缺"
   },
+
 
   // ===== 莎豬小隊 =====
+
   {
     day:1,
     time:"13:00-16:00",
@@ -734,6 +1788,7 @@ const classes = [
     place:"中壢羽宙人球館｜培英路169號",
     url:"缺"
   },
+
 
   {
     day:2,
@@ -746,6 +1801,7 @@ const classes = [
     url:"缺"
   },
 
+
   {
     day:4,
     time:"13:00-16:00",
@@ -756,6 +1812,7 @@ const classes = [
     place:"中壢羽宙人球館｜培英路169號",
     url:"缺"
   },
+
 
   {
     day:5,
@@ -768,6 +1825,7 @@ const classes = [
     url:"缺"
   },
 
+
   {
     day:7,
     time:"13:00-16:00",
@@ -779,7 +1837,9 @@ const classes = [
     url:"缺"
   },
 
+
   // ===== 高飛米線團 =====
+
   {
     day:2,
     time:"13:30-16:30",
@@ -790,6 +1850,7 @@ const classes = [
     place:"高飛羽球正義館｜正義路156號",
     url:"缺"
   },
+
 
   {
     day:4,
@@ -802,7 +1863,9 @@ const classes = [
     url:"缺"
   },
 
+
   // ===== 77桃園羽球館｜羽嘉同行 =====
+
   {
     day:1,
     time:"09:00-12:00",
@@ -813,6 +1876,7 @@ const classes = [
     place:"77桃園羽球館",
     url:"缺"
   },
+
 
   {
     day:3,
@@ -825,6 +1889,7 @@ const classes = [
     url:"缺"
   },
 
+
   {
     day:5,
     time:"09:00-12:00",
@@ -835,6 +1900,7 @@ const classes = [
     place:"77桃園羽球館",
     url:"缺"
   },
+
 
   {
     day:6,
@@ -847,7 +1913,9 @@ const classes = [
     url:"缺"
   },
 
+
   // ===== 文中羽球館 =====
+
   {
     day:6,
     time:"20:00-23:00",
@@ -862,11 +1930,21 @@ const classes = [
 ];
 
 
+
 /* =========================================================
-   基本設定
+   星期
 ========================================================= */
 
-const dayNames = ["一","二","三","四","五","六","日"];
+const dayNames = [
+  "一",
+  "二",
+  "三",
+  "四",
+  "五",
+  "六",
+  "日"
+];
+
 
 
 /* =========================================================
@@ -878,17 +1956,21 @@ const groups = [
   {
     key:"period",
     label:"時段",
-    options:["上午","下午","晚上"]
+    options:[
+      "上午",
+      "下午",
+      "晚上"
+    ]
   },
+
 
   {
     key:"level",
     label:"強度",
+
     options:[
       "程度不限",
       "新手",
-      //"一般",
-      //"初階～初中階",
       "新手～初中階",
       "初中階",
       "3-7級",
@@ -896,6 +1978,7 @@ const groups = [
       "中階以上"
     ]
   },
+
 
   {
     key:"day",
@@ -906,6 +1989,7 @@ const groups = [
 ];
 
 
+
 /* =========================================================
    強度顏色
 ========================================================= */
@@ -913,20 +1997,25 @@ const groups = [
 const levelColor = {
 
   "新手":"var(--l1)",
-  //"一般":"var(--l2)",
+
   "中階以上":"var(--l3)",
 
   "初階～初中階":"var(--l1)",
+
   "新手～初中階":"var(--l1)",
 
   "初中階":"var(--l2)",
+
   "3-7級":"var(--l2)",
+
   "4-7級":"var(--l2)",
 
   "程度不限":"var(--mute)",
+
   "缺":"var(--mute)"
 
 };
+
 
 
 /* =========================================================
@@ -934,10 +2023,15 @@ const levelColor = {
 ========================================================= */
 
 const state = {
+
   period:"全部",
+
   level:"全部",
+
   day:"全部"
+
 };
+
 
 
 /* =========================================================
@@ -945,6 +2039,7 @@ const state = {
 ========================================================= */
 
 const districts = [
+
   "桃園區",
   "中壢區",
   "平鎮區",
@@ -958,32 +2053,45 @@ const districts = [
   "觀音區",
   "新屋區",
   "復興區"
+
 ];
 
+
 const selDistricts = new Set();
+
 
 
 /* =========================================================
    今天
 ========================================================= */
 
-const todayIdx = (new Date().getDay()+6)%7 + 1;
+const todayIdx =
+  (new Date().getDay() + 6) % 7 + 1;
+
 
 
 /* =========================================================
    時間格式
 ========================================================= */
 
-const fmt = t => t.replace("-", "–");
+const fmt =
+  t => t.replace("-", "–");
+
 
 
 /* =========================================================
    DOM
 ========================================================= */
 
-const $filters = document.getElementById("filters");
-const $week = document.getElementById("week");
-const $count = document.getElementById("count");
+const $filters =
+  document.getElementById("filters");
+
+const $week =
+  document.getElementById("week");
+
+const $count =
+  document.getElementById("count");
+
 
 
 /* =========================================================
@@ -994,42 +2102,63 @@ function renderFilters(){
 
   $filters.innerHTML = "";
 
+
   groups.forEach(g => {
 
-    const row = document.createElement("div");
+    const row =
+      document.createElement("div");
+
 
     row.className = "row";
 
-    row.innerHTML = `<b>${g.label}</b>`;
 
-    ["全部", ...g.options].forEach(opt => {
+    row.innerHTML =
+      `<b>${g.label}</b>`;
 
-      const btn = document.createElement("button");
 
-      btn.className = "chip";
+    [
+      "全部",
+      ...g.options
+    ].forEach(opt => {
+
+      const btn =
+        document.createElement("button");
+
+
+      btn.className =
+        "chip";
+
 
       btn.textContent =
-        g.key === "day" && opt !== "全部"
+        g.key === "day" &&
+        opt !== "全部"
+
           ? "週" + opt
+
           : opt;
+
 
       btn.setAttribute(
         "aria-pressed",
         state[g.key] === opt
       );
 
+
       btn.onclick = () => {
 
         state[g.key] = opt;
 
         renderFilters();
+
         renderWeek();
 
       };
 
+
       row.appendChild(btn);
 
     });
+
 
     $filters.appendChild(row);
 
@@ -1038,27 +2167,43 @@ function renderFilters(){
 }
 
 
+
 /* =========================================================
    渲染週曆
 ========================================================= */
 
 function renderWeek(){
 
-  const filtered = classes.filter(c =>
+  const filtered =
+    classes.filter(c =>
 
-    (state.period === "全部" ||
-      c.period === state.period) &&
+      (
+        state.period === "全部" ||
+        c.period === state.period
+      )
 
-    (state.level === "全部" ||
-      c.level === state.level) &&
+      &&
 
-    (selDistricts.size === 0 ||
-      selDistricts.has(c.district)) &&
+      (
+        state.level === "全部" ||
+        c.level === state.level
+      )
 
-    (state.day === "全部" ||
-      dayNames[c.day - 1] === state.day)
+      &&
 
-  );
+      (
+        selDistricts.size === 0 ||
+        selDistricts.has(c.district)
+      )
+
+      &&
+
+      (
+        state.day === "全部" ||
+        dayNames[c.day - 1] === state.day
+      )
+
+    );
 
 
   $count.innerHTML =
@@ -1068,7 +2213,11 @@ function renderWeek(){
   if(!filtered.length){
 
     $week.innerHTML =
-      '<div class="none">沒有符合條件的開團，請調整篩選。</div>';
+      `
+        <div class="none">
+          沒有符合條件的開團，請調整篩選。
+        </div>
+      `;
 
     return;
 
@@ -1077,214 +2226,323 @@ function renderWeek(){
 
   const days =
     state.day === "全部"
+
       ? [1,2,3,4,5,6,7]
-      : [dayNames.indexOf(state.day) + 1];
+
+      : [
+          dayNames.indexOf(state.day) + 1
+        ];
 
 
-  $week.innerHTML = days.map(d => {
-
-    const items = filtered
-      .filter(c => c.day === d)
-      .sort((a,b) => a.time.localeCompare(b.time));
+  $week.innerHTML =
+    days.map(d => {
 
 
-    const body = items.length
+      const items =
+        filtered
 
-      ? items.map(c => `
+          .filter(c =>
+            c.day === d
+          )
 
-        <button
-          class="cls"
-          data-i="${classes.indexOf(c)}"
-          style="--c:${levelColor[c.level] || "var(--mute)"}">
+          .sort((a,b) =>
+            a.time.localeCompare(b.time)
+          );
 
-          <div class="t">
-            ${fmt(c.time)}
+
+      const body =
+        items.length
+
+
+          ? items.map(c => `
+
+              <button
+                class="cls"
+                data-i="${classes.indexOf(c)}"
+                style="
+                  --c:${
+                    levelColor[c.level]
+                    || "var(--mute)"
+                  };
+                ">
+
+                <div class="t">
+                  ${fmt(c.time)}
+                </div>
+
+                <div class="n">
+                  ${c.name}
+                </div>
+
+                <div class="p">
+                  ${c.place}
+                </div>
+
+                <div class="l">
+                  ${c.level}
+                </div>
+
+              </button>
+
+            `).join("")
+
+
+          : `
+              <div class="empty">
+                本日無符合的團
+              </div>
+            `;
+
+
+      const today =
+        d === todayIdx;
+
+
+      return `
+
+        <section
+          class="day${today ? " today" : ""}">
+
+          <h2>
+
+            <span>
+              週${dayNames[d-1]}
+            </span>
+
+            ${
+              today
+
+                ? `
+                  <span class="today-tag">
+                    今天
+                  </span>
+                `
+
+                : ""
+            }
+
+          </h2>
+
+
+          <div class="list">
+
+            ${body}
+
           </div>
 
-          <div class="n">
-            ${c.name}
-          </div>
+        </section>
 
-          <div class="p">
-            ${c.place}
-          </div>
+      `;
 
-          <div class="l">
-            ${c.level}
-          </div>
-
-        </button>
-
-      `).join("")
-
-      : '<div class="empty">本日無符合的團</div>';
-
-
-    const today = d === todayIdx;
-
-
-    return `
-
-      <section class="day${today ? " today" : ""}">
-
-        <h2>
-          週${dayNames[d-1]}
-
-          ${
-            today
-              ? '<span class="today-tag">今天</span>'
-              : ''
-          }
-
-        </h2>
-
-        <div class="list">
-          ${body}
-        </div>
-
-      </section>
-
-    `;
-
-  }).join("");
+    }).join("");
 
 }
+
 
 
 /* =========================================================
    詳細視窗
 ========================================================= */
 
-const $dlg = document.getElementById("dlg");
+const $dlg =
+  document.getElementById("dlg");
 
 
-$week.addEventListener("click", e => {
+$week.addEventListener(
+  "click",
+  e => {
 
-  const b = e.target.closest("button.cls");
-
-  if(!b) return;
-
-
-  const c = classes[b.dataset.i];
-
-
-  const color =
-    levelColor[c.level] || "var(--mute)";
+    const b =
+      e.target.closest(
+        "button.cls"
+      );
 
 
-  $dlg.innerHTML = `
+    if(!b) return;
 
-    <div class="dlg" style="--c:${color}">
 
-      <div class="head">
+    const c =
+      classes[b.dataset.i];
 
-        <h3>
-          ${c.name}
-        </h3>
 
-        <div class="when">
-          週${dayNames[c.day-1]}　${fmt(c.time)}
+    const color =
+      levelColor[c.level]
+      || "var(--mute)";
+
+
+    $dlg.innerHTML = `
+
+      <div
+        class="dlg"
+        style="--c:${color}">
+
+
+        <div class="head">
+
+          <h3>
+            ${c.name}
+          </h3>
+
+
+          <div class="when">
+
+            週${dayNames[c.day-1]}
+            ${"　"}
+            ${fmt(c.time)}
+
+          </div>
+
         </div>
 
-      </div>
+
+        <dl>
 
 
-      <dl>
+          <dt>
+            地點
+          </dt>
 
-        <dt>地點</dt>
-
-        <dd>
-          ${c.district}・${c.place}
-        </dd>
-
-
-        <dt>時間</dt>
-
-        <dd>
-          週${dayNames[c.day-1]} ${c.time}
-        </dd>
+          <dd>
+            ${c.district}・${c.place}
+          </dd>
 
 
-        <dt>程度</dt>
+          <dt>
+            時間
+          </dt>
 
-        <dd>
-          <span
-            class="badge"
-            style="background:${color}">
-            ${c.level}
-          </span>
-        </dd>
+          <dd>
+            週${dayNames[c.day-1]}
+            ${c.time}
+          </dd>
 
 
-        <dt>連結</dt>
+          <dt>
+            程度
+          </dt>
 
-        <dd>
+          <dd>
+
+            <span
+              class="badge"
+              style="
+                background:${color}
+              ">
+
+              ${c.level}
+
+            </span>
+
+          </dd>
+
+
+          <dt>
+            連結
+          </dt>
+
+
+          <dd>
+
+            ${
+              c.url === "缺"
+
+                ? "缺"
+
+                : `
+                  <a
+                    class="lnk"
+                    href="${c.url}"
+                    target="_blank"
+                    rel="noopener">
+
+                    ${c.url}
+
+                  </a>
+                `
+            }
+
+          </dd>
+
+
+        </dl>
+
+
+        <div class="acts">
+
+
           ${
             c.url === "缺"
 
-              ? "缺"
+              ? `
 
-              : `<a
-                  class="lnk"
+                <button
+                  id="close"
+                  style="width:100%">
+
+                  關閉
+
+                </button>
+
+              `
+
+              : `
+
+                <a
                   href="${c.url}"
                   target="_blank"
                   rel="noopener">
-                  ${c.url}
-                </a>`
+
+                  前往報名
+
+                </a>
+
+
+                <button id="close">
+
+                  關閉
+
+                </button>
+
+              `
           }
-        </dd>
-
-      </dl>
 
 
-      <div class="acts">
+        </div>
 
-        ${
-          c.url === "缺"
-
-            ? `<button
-                id="close"
-                style="width:100%">
-                關閉
-              </button>`
-
-            : `
-              <a
-                href="${c.url}"
-                target="_blank"
-                rel="noopener">
-                前往報名
-              </a>
-
-              <button id="close">
-                關閉
-              </button>
-            `
-        }
 
       </div>
 
-    </div>
-
-  `;
+    `;
 
 
-  $dlg.showModal();
+    $dlg.showModal();
 
 
-  document.getElementById("close").onclick =
-    () => $dlg.close();
+    document
+      .getElementById("close")
+      .onclick =
+        () => $dlg.close();
 
-});
-
-
-$dlg.addEventListener("click", e => {
-
-  if(e.target === $dlg){
-    $dlg.close();
   }
+);
 
-});
+
+
+/* 點擊背景關閉 */
+
+$dlg.addEventListener(
+  "click",
+  e => {
+
+    if(e.target === $dlg){
+
+      $dlg.close();
+
+    }
+
+  }
+);
+
 
 
 /* =========================================================
@@ -1294,103 +2552,143 @@ $dlg.addEventListener("click", e => {
 const $distBtn =
   document.getElementById("distBtn");
 
+
 const $distPanel =
   document.getElementById("distPanel");
+
 
 const $distOpts =
   document.getElementById("distOpts");
 
 
+
 function distLabel(){
 
-  const n = selDistricts.size;
+  const n =
+    selDistricts.size;
+
 
   const t =
+
     n === 0
+
       ? "全部地區"
+
       : n === 1
+
         ? [...selDistricts][0]
+
         : `已選 ${n} 個地區`;
 
+
   return t +
-    (!$distPanel.hidden ? " ▴" : " ▾");
+    (
+      !$distPanel.hidden
+        ? " ▴"
+        : " ▾"
+    );
 
 }
 
 
+
 /* 建立地區選項 */
 
-$distOpts.innerHTML = districts.map(d => `
+$distOpts.innerHTML =
 
-  <label class="opt">
+  districts.map(d => `
 
-    <input
-      type="checkbox"
-      value="${d}">
+    <label class="opt">
 
-    ${d}
+      <input
+        type="checkbox"
+        value="${d}">
 
-  </label>
+      ${d}
 
-`).join("");
+    </label>
+
+  `).join("");
 
 
-/* 地區展開 / 收合 */
+
+/* 地區開關 */
 
 $distBtn.onclick = () => {
 
   $distPanel.hidden =
     !$distPanel.hidden;
 
+
   $distBtn.setAttribute(
     "aria-expanded",
     !$distPanel.hidden
   );
 
+
   $distBtn.textContent =
     distLabel();
 
 };
+
 
 
 /* 地區勾選 */
 
-$distOpts.addEventListener("change", e => {
+$distOpts.addEventListener(
+  "change",
+  e => {
 
-  e.target.checked
-    ? selDistricts.add(e.target.value)
-    : selDistricts.delete(e.target.value);
+    e.target.checked
+
+      ? selDistricts.add(
+          e.target.value
+        )
+
+      : selDistricts.delete(
+          e.target.value
+        );
 
 
-  $distBtn.textContent =
-    distLabel();
+    $distBtn.textContent =
+      distLabel();
 
 
-  renderWeek();
+    renderWeek();
 
-});
+  }
+);
+
 
 
 /* 清除地區 */
 
-document.getElementById("distClear").onclick = () => {
+document
+  .getElementById("distClear")
+  .onclick = () => {
 
-  selDistricts.clear();
+    selDistricts.clear();
 
-  $distOpts
-    .querySelectorAll("input")
-    .forEach(i => i.checked = false);
 
-  $distBtn.textContent =
-    distLabel();
+    $distOpts
+      .querySelectorAll("input")
+      .forEach(
+        i => i.checked = false
+      );
 
-  renderWeek();
 
-};
+    $distBtn.textContent =
+      distLabel();
+
+
+    renderWeek();
+
+  };
+
 
 
 /* =========================================================
-   亮色 / 深色模式
+   亮色 / 深色
 ========================================================= */
 
 const root =
@@ -1403,6 +2701,7 @@ function setTheme(t, save){
     "data-theme",
     t
   );
+
 
   document
     .getElementById("themeSwitch")
@@ -1428,25 +2727,34 @@ function setTheme(t, save){
 }
 
 
+
 let saved = null;
 
 
 try{
 
   saved =
-    localStorage.getItem("theme");
+    localStorage.getItem(
+      "theme"
+    );
 
 }catch(e){}
 
 
+
 setTheme(
 
-  saved ||
+  saved
+
+  ||
+
   (
     matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches
+
       ? "dark"
+
       : "light"
   ),
 
@@ -1455,14 +2763,21 @@ setTheme(
 );
 
 
+
+/* 深色模式切換 */
+
 document
   .getElementById("themeSwitch")
   .onclick = () => {
 
     setTheme(
 
-      root.getAttribute("data-theme") === "dark"
+      root.getAttribute(
+        "data-theme"
+      ) === "dark"
+
         ? "light"
+
         : "dark",
 
       true
@@ -1472,11 +2787,13 @@ document
   };
 
 
+
 /* =========================================================
    初始化
 ========================================================= */
 
 renderFilters();
+
 renderWeek();
 
 </script>
