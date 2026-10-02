@@ -281,17 +281,43 @@ dialog::backdrop{background:rgba(5,15,11,.55);backdrop-filter:blur(4px)}
 /* ===== 開團資料 ===== */
 const classes = [
   {day:6,time:"14:00-17:00",period:"下午",name:"QQ梅子飯團｜全女團",level:"初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
-  {day:1,time:"19:00-22:00",period:"晚上",name:"巧鬍羽球｜臨打團",level:"程度不限",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
-  {day:5,time:"22:00-01:00",period:"晚上",name:"巧鬍羽球｜週五夜貓團",level:"程度不限",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
-  {day:2,time:"19:00-22:00",period:"晚上",name:"Sherry 排點團",level:"4-7級",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
-  {day:6,time:"09:00-12:00",period:"上午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
-  {day:6,time:"14:00-17:00",period:"下午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
-  {day:7,time:"09:00-12:00",period:"上午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
-  {day:7,time:"14:00-17:00",period:"下午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
-  ...[1,2,4,5,7].map(d=>({day:d,time:"13:00-16:00",period:"下午",name:"莎豬小隊｜歡樂羽球團",level:"3-7級",district:"中壢區",place:"中壢羽宙人球館｜培英路169號",url:"缺"})),
-  ...[2,4].map(d=>({day:d,time:"13:30-16:30",period:"下午",name:"高飛米線團",level:"缺",district:"平鎮區",place:"高飛羽球正義館｜正義路156號",url:"缺"})),
-  ...[1,3,5,6].map(d=>({day:d,time:"09:00-12:00",period:"上午",name:"羽嘉同行",level:"程度不限",district:"桃園區",place:"77桃園羽球館",url:"缺"})),
-  {day:6,time:"20:00-23:00",period:"晚上",name:"櫃檯小弟暢打團",level:"4-7級",district:"桃園區",place:"文中羽球館",url:"缺"}
+  
+  {day:1,time:"19:00-22:00",period:"晚上",name:"巧鬍羽球｜臨打團",level:"程度不限",district:"龍潭區",place:"龍潭中豐羽球館",url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FAucSnchNXY7zp7u3PQDzcKq-B9yJymBKwt1D7w%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"},
+  {day:5,time:"22:00-01:00",period:"晚上",name:"巧鬍羽球｜週五夜貓團",level:"程度不限",district:"龍潭區",place:"龍潭中豐羽球館",url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FAucSnchNXY7zp7u3PQDzcKq-B9yJymBKwt1D7w%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"},
+  
+  {day:2,time:"19:00-22:00",period:"晚上",name:"Sherry 排點團",level:"4-7級",district:"龍潭區",place:"龍潭中豐羽球館",url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FIPTYb9mVPmskMynOQFLYJmUeF3qfxACoHrnhLQ%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"},
+  {day:6,time:"09:00-12:00",period:"上午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FIPTYb9mVPmskMynOQFLYJmUeF3qfxACoHrnhLQ%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"},
+  {day:6,time:"14:00-17:00",period:"下午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FIPTYb9mVPmskMynOQFLYJmUeF3qfxACoHrnhLQ%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"},
+  {day:7,time:"09:00-12:00",period:"上午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FIPTYb9mVPmskMynOQFLYJmUeF3qfxACoHrnhLQ%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"},
+  {day:7,time:"14:00-17:00",period:"下午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FIPTYb9mVPmskMynOQFLYJmUeF3qfxACoHrnhLQ%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"},
+
+  {day:3,time:"13:30-16:30",period:"下午",name:"羽過天晴",level:"新手～初中階",district:"平鎮區",place:"高飛羽球正義館｜正義路156號",url:"https://line.me/ti/g2/iXDYNNaAI1487udBcEb-HYABdsfLZGNrMQn7wA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
+  
+  ...[5,6].map(d=>({day:d,time:"19:00-22:00",period:"晚上",name:"雪莉臨打團",level:"3-7級",district:"中壢區",place:"飆球綜合性球類運動球館",url:"https://line.me/ti/g2/Dt7EAXVLBnDftBLsjK2fVymgnGigEnhJs5tMpQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"})),
+ 
+  ...[2,4,6].map(d=>({day:d,time:"20:00-22:00",period:"晚上",name:"名揚國際羽球",level:"程度不限",district:"楊梅區",place:"楊梅體育園區",url:"https://line.me/ti/g2/dCZdkHwBa-zELptR7nHqbZheAIL9hjkYjamWeA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"})),
+  {day:7,time:"14:00-18:00",period:"下午",name:"名揚國際羽球",level:"程度不限",district:"中壢區",place:"中壢國民運動中心",url:"https://line.me/ti/g2/dCZdkHwBa-zELptR7nHqbZheAIL9hjkYjamWeA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
+  
+  {day:2,time:"10:00-12:00",period:"上午",name:"喬瘋羽球",level:"程度不限",district:"蘆竹區",place:"富暘羽球運動中心｜蘆竹區中正北路599號",url:"缺"},
+  {day:7,time:"19:00-22:00",period:"晚上",name:"喬瘋羽球",level:"男6級UP+女4級UP",district:"蘆竹區",place:"富暘羽球運動中心｜蘆竹區中正北路599號",url:"缺"},
+  
+  {day:1,time:"18:00-20:00",period:"晚上",name:"Gmeimei暢打團",level:"新手",district:"蘆竹區",place:"YT SPORT 文中館",url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
+  {day:1,time:"20:00-22:00",period:"晚上",name:"Gmeimei暢打團",level:"新手～初階",district:"蘆竹區",place:"YT SPORT 文中館",url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
+  {day:3,time:"18:00-23:00",period:"晚上",name:"Gmeimei暢打團",level:"新手～初階",district:"蘆竹區",place:"YT SPORT 文中館",url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
+  {day:5,time:"20:00-23:00",period:"晚上",name:"Gmeimei暢打團",level:"新手～初階",district:"中壢區",place:"YT SPORT 吉林館",url:"https://line.me/ti/g2/6oGrDbd4dUSb6yx8q2XaL-IQAcdAth3RbG8Lkg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
+  {day:6,time:"13:00-16:00",period:"下午",name:"Gmeimei暢打團",level:"新手～初階",district:"中壢區",place:"YT SPORT 吉林館",url:"https://line.me/ti/g2/6oGrDbd4dUSb6yx8q2XaL-IQAcdAth3RbG8Lkg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
+  {day:7,time:"08:00-11:00",period:"上午",name:"Gmeimei暢打團",level:"新手",district:"蘆竹區",place:"YT SPORT 文中館",url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
+  {day:7,time:"11:00-13:00",period:"上午",name:"Gmeimei暢打團",level:"新手～初階",district:"蘆竹區",place:"YT SPORT 文中館",url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
+  
+
+
+
+
+
+  ...[1,2,4,5,7].map(d=>({day:d,time:"13:00-16:00",period:"下午",name:"莎豬小隊｜歡樂羽球團",level:"3-7級",district:"中壢區",place:"中壢羽宙人球館｜培英路169號",url:"https://line.me/ti/g2/2npdIzOVS_mXwzUcMzdLerYIdn1Cy7CSmDP8_A?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"})),
+  ...[2,4].map(d=>({day:d,time:"13:30-16:30",period:"下午",name:"高飛米線團",level:"缺",district:"平鎮區",place:"高飛羽球正義館｜正義路156號",url:"https://line.me/ti/g2/iXDYNNaAI1487udBcEb-HYABdsfLZGNrMQn7wA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"})),
+  ...[1,3,5,6].map(d=>({day:d,time:"09:00-12:00",period:"上午",name:"羽嘉同行",level:"程度不限",district:"桃園區",place:"77桃園羽球館",url:"https://line.me/ti/g2/uBvN8UZ5f_zhoYh79WsxtCf9K0sdUtE7bqQicQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"})),
+  {day:6,time:"20:00-23:00",period:"晚上",name:"櫃檯小弟暢打團",level:"4-7級",district:"蘆竹區",place:"YT SPORT 文中館",url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"}
 ];
 
 const dayNames = ["一","二","三","四","五","六","日"];
@@ -300,12 +326,12 @@ const venueOf = c => c.place.split("｜")[0];
 
 const groups = [
   {key:"period",label:"時段",seg:true,options:["上午","下午","晚上"]},
-  {key:"level",label:"強度",options:["程度不限","新手","新手～初中階","初中階","3-7級","4-7級","中階以上"]},
+  {key:"level",label:"強度",options:["程度不限","新手","新手～初階","新手～初中階","初中階","3-7級","4-7級","男6級UP+女4級UP","中階以上"]},
   {key:"day",label:"星期",seg:true,options:dayNames}
 ];
 
 const levelColor = {
-  "新手":"var(--l1)","中階以上":"var(--l3)","初階～初中階":"var(--l1)","新手～初中階":"var(--l1)",
+  "新手":"var(--l1)","新手～初階":"var(--l1)","男6級UP+女4級UP":"var(--l3)","中階以上":"var(--l3)","初階～初中階":"var(--l1)","新手～初中階":"var(--l1)",
   "初中階":"var(--l2)","3-7級":"var(--l2)","4-7級":"var(--l2)","程度不限":"var(--l0)","缺":"var(--l0)"
 };
 
