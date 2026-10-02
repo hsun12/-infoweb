@@ -2,2801 +2,487 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>羽球開團資訊</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-
 <style>
-
-/* =========================================================
-   顏色
-========================================================= */
-
 :root{
   color-scheme:light;
-
-  --bg:#edf3ef;
-  --card:#fff;
-  --ink:#10231d;
-  --mute:#586c64;
-  --line:#d9e4de;
-  --chip:#eef4f0;
-
-  --brand:#0f6b52;
-  --on-brand:#fff;
-
-  --hero1:#0a5441;
-  --hero2:#12805f;
-
-  --l1:#2a9fbf;
-  --l2:#d99a14;
-  --l3:#d4493d;
-
-  --shadow:0 6px 24px rgba(16,35,29,.10);
+  --bg:#eaf1ed;--card:#fff;--ink:#10231d;--mute:#586c64;--line:#d9e4de;--chip:#eef4f0;
+  --brand:#0f6b52;--on-brand:#fff;--hero1:#0a5441;--hero2:#12805f;
+  --l1:#2a9fbf;--l2:#d99a14;--l3:#d4493d;--l0:#7a8c85;
+  --glass:rgba(255,255,255,.78);
+  --shadow:0 8px 28px rgba(16,35,29,.10);
 }
-
-
-/* =========================================================
-   深色模式
-========================================================= */
-
 :root[data-theme="dark"]{
   color-scheme:dark;
-
-  --bg:#0a1310;
-  --card:#12201b;
-  --ink:#e8f1ed;
-  --mute:#8fa69e;
-  --line:#233830;
-  --chip:#192a24;
-
-  --brand:#3cc79a;
-  --on-brand:#06201a;
-
-  --hero1:#0c3a2d;
-  --hero2:#0a2a21;
-
-  --l1:#4cbbdb;
-  --l2:#f0b429;
-  --l3:#ef6b5e;
-
-  --shadow:0 6px 24px rgba(0,0,0,.45);
+  --bg:#0a1310;--card:#12201b;--ink:#e8f1ed;--mute:#8fa69e;--line:#233830;--chip:#192a24;
+  --brand:#3cc79a;--on-brand:#06201a;--hero1:#0c3a2d;--hero2:#0a2a21;
+  --l1:#4cbbdb;--l2:#f0b429;--l3:#ef6b5e;--l0:#8fa69e;
+  --glass:rgba(10,19,16,.78);
+  --shadow:0 8px 28px rgba(0,0,0,.45);
 }
-
-
-@media (prefers-color-scheme:dark){
-
-  :root:not([data-theme]){
-    color-scheme:dark;
-
-    --bg:#0a1310;
-    --card:#12201b;
-    --ink:#e8f1ed;
-    --mute:#8fa69e;
-    --line:#233830;
-    --chip:#192a24;
-
-    --brand:#3cc79a;
-    --on-brand:#06201a;
-
-    --hero1:#0c3a2d;
-    --hero2:#0a2a21;
-
-    --l1:#4cbbdb;
-    --l2:#f0b429;
-    --l3:#ef6b5e;
-
-    --shadow:0 6px 24px rgba(0,0,0,.45);
-  }
-
-}
-
-
-/* =========================================================
-   基本
-========================================================= */
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  overflow-x:hidden;
-}
-
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{overflow-x:hidden;scroll-padding-top:env(safe-area-inset-top,0px)}
 body{
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-
-  font-family:
-    "Noto Sans TC",
-    "PingFang TC",
-    "Microsoft JhengHei",
-    sans-serif;
-
-  line-height:1.5;
-
-  overflow-x:hidden;
+  margin:0;background:var(--bg);color:var(--ink);line-height:1.5;overflow-x:hidden;
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  -webkit-font-smoothing:antialiased;
 }
+button{font-family:inherit}
 
-button{
-  font-family:inherit;
-}
-
-
-/* =========================================================
-   頁首
-========================================================= */
-
+/* ---------- 頁首 ---------- */
 .hero{
-  position:relative;
-  overflow:hidden;
-
-  color:#fff;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--hero1),
-      var(--hero2)
-    );
-
-  padding:22px 20px 76px;
+  position:relative;overflow:hidden;color:#fff;
+  background:linear-gradient(135deg,var(--hero1),var(--hero2));
+  padding:calc(18px + env(safe-area-inset-top,0px)) 20px 70px;
 }
+.hero svg{position:absolute;right:-30px;top:-14px;height:calc(100% + 28px);width:auto;opacity:.85;pointer-events:none}
+.hero-in{position:relative;max-width:1400px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+h1{margin:0;font-size:clamp(30px,5vw,48px);font-weight:900;letter-spacing:.06em;line-height:1.1}
+.sub{margin:6px 0 0;color:rgba(255,255,255,.82);font-size:14px}
+.theme{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.88);flex-shrink:0;padding-bottom:4px}
+.switch{position:relative;width:48px;height:29px;border:0;border-radius:999px;background:rgba(255,255,255,.28);cursor:pointer;padding:0;transition:background .25s}
+.switch::after{content:"";position:absolute;top:2px;left:2px;width:25px;height:25px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.3);transition:transform .25s}
+.switch[aria-checked=true]{background:#34c759}
+.switch[aria-checked=true]::after{transform:translateX(19px)}
+.switch:focus-visible,.chip:focus-visible,button.cls:focus-visible,.tab:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.switch:focus-visible{outline-color:#fff}
 
-
-.hero svg{
-  position:absolute;
-
-  right:-30px;
-  top:-14px;
-
-  height:calc(100% + 28px);
-  width:auto;
-
-  opacity:.9;
-
-  pointer-events:none;
-}
-
-
-.hero-in{
-  position:relative;
-
-  max-width:1240px;
-
-  margin:0 auto;
-}
-
-
-.bar{
-  display:flex;
-  justify-content:flex-end;
-}
-
-
-.theme{
-  display:flex;
-  align-items:center;
-
-  gap:10px;
-
-  font-size:14px;
-
-  color:rgba(255,255,255,.88);
-}
-
-
-h1{
-  margin:14px 0 6px;
-
-  font-size:clamp(
-    34px,
-    6vw,
-    56px
-  );
-
-  font-weight:900;
-
-  letter-spacing:.06em;
-
-  line-height:1.1;
-}
-
-
-.sub{
-  margin:0;
-
-  max-width:34em;
-
-  color:rgba(255,255,255,.82);
-}
-
-
-/* =========================================================
-   深色模式開關
-========================================================= */
-
-.switch{
-  position:relative;
-
-  width:51px;
-  height:31px;
-
-  border:0;
-
-  border-radius:999px;
-
-  background:rgba(255,255,255,.28);
-
-  cursor:pointer;
-
-  padding:0;
-
-  transition:background .25s;
-}
-
-
-.switch::after{
-  content:"";
-
-  position:absolute;
-
-  top:2px;
-  left:2px;
-
-  width:27px;
-  height:27px;
-
-  border-radius:50%;
-
-  background:#fff;
-
-  box-shadow:
-    0 2px 4px rgba(0,0,0,.3);
-
-  transition:transform .25s;
-}
-
-
-.switch[aria-checked=true]{
-  background:#34c759;
-}
-
-
-.switch[aria-checked=true]::after{
-  transform:translateX(20px);
-}
-
-
-/* =========================================================
-   Focus
-========================================================= */
-
-.switch:focus-visible,
-.chip:focus-visible,
-button.cls:focus-visible{
-  outline:2px solid var(--brand);
-  outline-offset:2px;
-}
-
-
-.switch:focus-visible{
-  outline-color:#fff;
-}
-
-
-/* =========================================================
-   主內容
-========================================================= */
-
-.wrap{
-  max-width:1240px;
-
-  margin:-48px auto 0;
-
-  padding:
-    0 16px 56px;
-
-  position:relative;
-}
-
-
-/* =========================================================
-   篩選器
-========================================================= */
+/* ---------- 主體 ---------- */
+.wrap{max-width:1400px;margin:-44px auto 0;padding:0 clamp(10px,2vw,20px) calc(40px + env(safe-area-inset-bottom,0px));position:relative}
 
 .filters{
-  background:var(--card);
-
-  border:1px solid var(--line);
-
-  border-radius:18px;
-
-  box-shadow:var(--shadow);
-
-  padding:18px 20px;
+  background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:16px 18px;
+  display:grid;gap:12px;
 }
-
-
-.gs{
-  display:grid;
-
-  gap:12px;
-}
-
-
-.row{
-  display:flex;
-
-  flex-wrap:wrap;
-
-  align-items:center;
-
-  gap:8px;
-}
-
-
-.row b{
-  width:44px;
-
-  flex:0 0 44px;
-
-  font-size:14px;
-
-  font-weight:700;
-}
-
-
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.row b{width:44px;flex:0 0 44px;font-size:14px;font-weight:700}
 .chip{
-  border:1px solid transparent;
-
-  background:var(--chip);
-
-  color:var(--ink);
-
-  padding:6px 15px;
-
-  border-radius:999px;
-
-  font-size:14px;
-
-  cursor:pointer;
-
-  transition:
-    background .15s,
-    color .15s,
-    border-color .15s;
+  border:1px solid transparent;background:var(--chip);color:var(--ink);
+  padding:6px 15px;border-radius:999px;font-size:14px;cursor:pointer;
+  transition:background .15s,color .15s,border-color .15s;
 }
+.chip:hover{border-color:var(--line)}
+.chip[aria-pressed=true]{background:var(--brand);color:var(--on-brand);font-weight:700}
 
+/* 下拉選單（地區 / 球館） */
+.dds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.dd{min-width:0}
+.dd>.row{flex-wrap:nowrap}
+.ddBtn{flex:1;min-width:0;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-color:var(--line)}
+.ddBtn[aria-expanded=true]{border-color:var(--brand)}
+.panel{margin-top:10px;padding:12px;background:var(--chip);border-radius:14px;grid-column:1/-1}
+.panel[hidden]{display:none}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+.opt{display:flex;align-items:center;gap:7px;padding:8px 10px;background:var(--card);border:1px solid var(--line);border-radius:10px;font-size:14px;cursor:pointer;min-width:0}
+.opt input{accent-color:var(--brand);width:16px;height:16px;margin:0;flex:0 0 auto}
+.opt:has(input:checked){border-color:var(--brand);font-weight:700}
+.panel .hint{margin:10px 0 0;font-size:13px;color:var(--mute)}
 
-.chip:hover{
-  border-color:var(--line);
+.count{margin:20px 4px 10px;font-size:14px;color:var(--mute)}
+.count b{color:var(--ink);font-size:20px;font-family:"Barlow Condensed",sans-serif;margin:0 3px}
+
+/* ---------- 日期頁籤（手機 / 平板） ---------- */
+.tabs{
+  position:sticky;top:0;z-index:5;display:flex;gap:6px;
+  margin:0 -4px 10px;padding:8px 4px calc(8px) 4px;
+  padding-top:calc(8px + env(safe-area-inset-top,0px));
+  background:var(--glass);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);
 }
-
-
-.chip[aria-pressed=true]{
-  background:var(--brand);
-
-  color:var(--on-brand);
-
-  font-weight:700;
+.tabs[hidden]{display:none}
+.tab{
+  flex:1;min-width:0;border:0;border-radius:14px;background:var(--card);color:var(--mute);
+  padding:7px 0 6px;cursor:pointer;display:grid;justify-items:center;gap:0;line-height:1.25;
+  border:1px solid var(--line);transition:background .2s,color .2s,border-color .2s,transform .2s;
 }
+.tab span{font-size:13px;font-weight:700}
+.tab i{font-style:normal;font-family:"Barlow Condensed",sans-serif;font-size:17px;font-weight:700;color:var(--ink)}
+.tab.now span::after{content:"•";margin-left:2px;color:var(--brand)}
+.tab{--dc:var(--brand)}
+.tab[aria-selected=true]{background:var(--dc);color:#fff;border-color:var(--dc);transform:translateY(-1px)}
+.tab[aria-selected=true] i,.tab[aria-selected=true] span::after{color:#fff}
+.tab:not([aria-selected=true]) span{color:var(--dc)}
 
-
-/* =========================================================
-   地區
-========================================================= */
-
-#dist{
-  margin-top:12px;
-}
-
-
-#distBtn[aria-expanded=true]{
-  border-color:var(--brand);
-}
-
-
-.panel{
-  margin-top:10px;
-
-  padding:12px;
-
-  background:var(--chip);
-
-  border-radius:12px;
-}
-
-
-.panel[hidden]{
-  display:none;
-}
-
-
-.opts{
-  display:grid;
-
-  grid-template-columns:
-    repeat(
-      auto-fill,
-      minmax(104px,1fr)
-    );
-
-  gap:8px;
-}
-
-
-.opt{
-  display:flex;
-
-  align-items:center;
-
-  gap:7px;
-
-  padding:7px 10px;
-
-  background:var(--card);
-
-  border:1px solid var(--line);
-
-  border-radius:10px;
-
-  font-size:14px;
-
-  cursor:pointer;
-}
-
-
-.opt input{
-  accent-color:var(--brand);
-
-  width:16px;
-  height:16px;
-
-  margin:0;
-
-  flex:0 0 auto;
-}
-
-
-.opt:has(input:checked){
-  border-color:var(--brand);
-
-  font-weight:700;
-}
-
-
-.panel .hint{
-  margin:10px 0 0;
-
-  font-size:13px;
-
-  color:var(--mute);
-}
-
-
-#distClear{
-  white-space:nowrap;
-}
-
-
-/* =========================================================
-   數量
-========================================================= */
-
-.count{
-  margin:22px 4px 12px;
-
-  font-size:15px;
-
-  color:var(--mute);
-}
-
-
-.count b{
-  color:var(--ink);
-
-  font-size:20px;
-
-  font-family:
-    "Barlow Condensed",
-    sans-serif;
-
-  margin:0 3px;
-}
-
-
-/* =========================================================
-   週曆
-========================================================= */
-
+/* ---------- 週曆：每一天剛好填滿螢幕寬 ---------- */
 .week{
-
-  display:grid;
-
-  grid-auto-flow:column;
-
-  /*
-    桌機：
-    依空間自動分配
-  */
-  grid-auto-columns:
-    minmax(
-      172px,
-      1fr
-    );
-
-  gap:12px;
-
-  overflow-x:auto;
-
-  padding:
-    2px 2px 12px;
-
-  scroll-snap-type:
-    x proximity;
-
-  scrollbar-width:thin;
-
-  overscroll-behavior-x:contain;
+  position:relative;display:grid;grid-auto-flow:column;gap:12px;align-items:start;
+  grid-auto-columns:100%;               /* 手機：一天 = 一個螢幕寬 */
+  overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding-bottom:6px;
 }
-
-
+.week::-webkit-scrollbar{display:none}
 .day{
-  scroll-snap-align:start;
-
-  min-height:220px;
-
-  border-radius:16px;
-
-  background:
-    color-mix(
-      in srgb,
-      var(--card) 55%,
-      transparent
-    );
-
-  border:1px solid var(--line);
-
-  overflow:hidden;
-
-  min-width:0;
+  --dc:var(--brand);
+  scroll-snap-align:start;scroll-snap-stop:always;min-width:0;
+  border-radius:20px;overflow:hidden;
+  background:color-mix(in srgb,var(--card) 55%,transparent);
+  border:1.5px solid color-mix(in srgb,var(--dc) 38%,var(--line));
 }
-
-
 .day h2{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0;
+  padding:13px 16px;font-size:18px;font-weight:900;color:#fff;letter-spacing:.04em;
+  background:linear-gradient(135deg,var(--dc),color-mix(in srgb,var(--dc) 72%,#000));
+  text-shadow:0 1px 2px rgba(0,0,0,.22);
+}
+:root[data-theme="dark"] .day h2{background:linear-gradient(135deg,color-mix(in srgb,var(--dc) 82%,#000),color-mix(in srgb,var(--dc) 55%,#000))}
+.day h2 small{font-size:12px;font-weight:500;opacity:.88;letter-spacing:0}
+.day.today{border-color:var(--dc);box-shadow:0 0 0 2px var(--dc),0 8px 22px color-mix(in srgb,var(--dc) 30%,transparent)}
+.today-tag{font-size:12px;font-weight:700;padding:1px 10px;border-radius:999px;background:#fff;color:var(--dc);text-shadow:none;flex-shrink:0}
+:root[data-theme="dark"] .today-tag{color:#10231d}
+.list{padding:12px;display:grid;gap:12px}
 
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  gap:8px;
-
-  margin:0;
-
-  padding:12px 14px;
-
-  font-size:17px;
-
-  font-weight:900;
-
-  background:var(--card);
-
-  border-bottom:1px solid var(--line);
+@media (min-width:640px){
+  .week{grid-auto-columns:calc((100% - 12px)/2);scroll-snap-type:x proximity}
+}
+@media (min-width:900px){
+  .week{grid-auto-columns:calc((100% - 24px)/3)}
+}
+@media (min-width:1180px){          /* 桌機：七天一次全部塞進螢幕，不用左右滑 */
+  .tabs{display:none}
+  .week{grid-auto-columns:minmax(0,1fr);overflow:visible;gap:10px}
+  .day h2{padding:12px;font-size:16px}
+  .list{padding:8px}
 }
 
-
-.day.today{
-
-  border-color:var(--brand);
-
-  box-shadow:
-    0 0 0 1px var(--brand);
-}
-
-
-.day.today h2{
-
-  background:var(--brand);
-
-  color:var(--on-brand);
-}
-
-
-.today-tag{
-
-  font-size:12px;
-
-  font-weight:700;
-
-  padding:1px 9px;
-
-  border-radius:999px;
-
-  background:rgba(255,255,255,.25);
-
-  flex-shrink:0;
-}
-
-
-.list{
-
-  padding:10px;
-
-  display:grid;
-
-  gap:10px;
-}
-
-
-/* =========================================================
-   球團卡片
-========================================================= */
-
+/* ---------- 球團卡片：彩色邊框 + 左側色條 + 淡色底 ---------- */
 button.cls{
-
-  width:100%;
-
-  min-width:0;
-
-  text-align:left;
-
-  color:inherit;
-
-  background:var(--card);
-
-  border:1px solid var(--line);
-
-  border-radius:12px;
-
-  padding:11px 12px 10px;
-
-  cursor:pointer;
-
-  display:grid;
-
-  gap:2px;
-
-  transition:
-    transform .15s,
-    box-shadow .15s,
-    border-color .15s;
+  width:100%;min-width:0;text-align:left;color:inherit;cursor:pointer;display:grid;gap:3px;
+  padding:12px 14px 11px 17px;border-radius:14px;position:relative;overflow:hidden;
+  border:1.5px solid color-mix(in srgb,var(--c) 55%,var(--line));
+  background:linear-gradient(135deg,color-mix(in srgb,var(--c) 13%,var(--card)),var(--card) 70%);
+  box-shadow:inset 5px 0 0 var(--c),0 1px 2px rgba(16,35,29,.06);
+  transition:transform .15s,box-shadow .15s,border-color .15s;
 }
-
-
-button.cls:hover{
-
-  transform:translateY(-2px);
-
-  box-shadow:var(--shadow);
-
-  border-color:var(--c);
-}
-
-
-.cls .t{
-
-  font-family:
-    "Barlow Condensed",
-    "Noto Sans TC",
-    sans-serif;
-
-  font-weight:700;
-
-  font-size:22px;
-
-  line-height:1.1;
-
-  letter-spacing:.02em;
-
-  white-space:nowrap;
-}
-
-
-.cls .n{
-
-  font-weight:700;
-
-  overflow-wrap:anywhere;
-}
-
-
-.cls .p{
-
-  font-size:13px;
-
-  color:var(--mute);
-
-  overflow-wrap:anywhere;
-}
-
-
+button.cls:hover{transform:translateY(-2px);border-color:var(--c);box-shadow:inset 5px 0 0 var(--c),var(--shadow)}
+button.cls:active{transform:scale(.985)}
+.cls .t{font-family:"Barlow Condensed","Noto Sans TC",sans-serif;font-weight:700;font-size:23px;line-height:1.1;letter-spacing:.02em;white-space:nowrap}
+.cls .n{font-weight:700;overflow-wrap:anywhere;line-height:1.4}
+.cls .p{font-size:13px;color:var(--mute);overflow-wrap:anywhere}
 .cls .l{
-
-  margin-top:6px;
-
-  font-size:12px;
-
-  font-weight:700;
-
-  color:var(--c);
-
-  display:flex;
-
-  align-items:center;
-
-  gap:6px;
-
-  overflow-wrap:anywhere;
+  justify-self:start;margin-top:6px;font-size:12px;font-weight:700;color:var(--c);
+  padding:2px 10px;border-radius:999px;background:color-mix(in srgb,var(--c) 15%,transparent);
+  border:1px solid color-mix(in srgb,var(--c) 35%,transparent);
 }
+.empty{color:var(--mute);font-size:13px;padding:10px 4px;text-align:center}
+.none{padding:56px 0;text-align:center;color:var(--mute)}
 
-
-.cls .l::before{
-
-  content:"";
-
-  width:8px;
-  height:8px;
-
-  flex:0 0 8px;
-
-  border-radius:50%;
-
-  background:var(--c);
-}
-
-
-.empty{
-
-  color:var(--mute);
-
-  font-size:13px;
-
-  padding:8px 4px;
-}
-
-
-.none{
-
-  padding:56px 0;
-
-  text-align:center;
-
-  color:var(--mute);
-}
-
-
-/* =========================================================
-   詳細視窗
-========================================================= */
-
+/* ---------- 詳細視窗（手機為底部抽屜） ---------- */
 dialog{
-
-  border:0;
-
-  border-radius:20px;
-
-  background:var(--card);
-
-  color:var(--ink);
-
-  padding:0;
-
-  width:min(
-    440px,
-    calc(100% - 32px)
-  );
-
-  max-height:
-    calc(100dvh - 32px);
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.35);
-
-  overflow:auto;
+  border:0;border-radius:24px;background:var(--card);color:var(--ink);padding:0;
+  width:min(440px,calc(100% - 32px));max-height:calc(100dvh - 32px);
+  box-shadow:0 24px 64px rgba(0,0,0,.35);overflow:auto;
 }
+dialog[open]{animation:pop .22s cubic-bezier(.2,.8,.2,1)}
+dialog::backdrop{background:rgba(5,15,11,.55);backdrop-filter:blur(4px)}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.dlg .head{padding:20px 22px 16px;border-top:6px solid var(--c)}
+.dlg h3{margin:0;font-size:22px;font-weight:900;overflow-wrap:anywhere}
+.dlg .when{margin-top:4px;font-family:"Barlow Condensed","Noto Sans TC",sans-serif;font-size:26px;font-weight:700;color:var(--brand)}
+.dlg dl{margin:0;padding:0 22px;display:grid;grid-template-columns:52px 1fr;gap:12px 8px;font-size:15px}
+.dlg dt{color:var(--mute);white-space:nowrap}
+.dlg dd{margin:0;overflow-wrap:anywhere}
+.badge{display:inline-block;padding:1px 11px;border-radius:999px;color:#fff;font-size:13px;font-weight:700}
+.dlg a.lnk{color:var(--brand);overflow-wrap:anywhere}
+.dlg .acts{display:flex;gap:10px;padding:22px 22px calc(22px + env(safe-area-inset-bottom,0px))}
+.dlg .acts a,.dlg .acts button{flex:1;min-width:0;text-align:center;padding:12px;border-radius:14px;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;border:0}
+.dlg .acts a{background:var(--brand);color:var(--on-brand)}
+.dlg .acts button{background:var(--chip);color:var(--ink)}
 
-
-dialog::backdrop{
-
-  background:
-    rgba(5,15,11,.55);
-
-  backdrop-filter:blur(3px);
+@media (max-width:640px){
+  .hero{padding-bottom:62px}
+  .hero svg{right:-70px;opacity:.5}
+  .sub{font-size:13px}
+  .filters{border-radius:18px;padding:14px;gap:14px}
+  .row b{width:100%;flex-basis:100%;margin-bottom:2px}
+  .dd>.row{flex-wrap:wrap}
+  .dd>.row b{width:100%}
+  .chip{padding:6px 12px;font-size:13px}
+  .dds{grid-template-columns:1fr}
+  .dd>.row{flex-wrap:nowrap}
+  .dd>.row b{width:44px;flex:0 0 44px;margin:0}
+  .opts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .opt{font-size:13px;padding:8px}
+  .cls .t{font-size:24px}
+  dialog{width:100%;max-width:none;margin:auto 0 0;border-radius:26px 26px 0 0;max-height:88dvh}
+  dialog[open]{animation:sheet .28s cubic-bezier(.2,.8,.2,1)}
+  .dlg .head{position:relative;padding:24px 20px 14px}
+  .dlg .head::before{content:"";position:absolute;top:10px;left:50%;width:38px;height:4px;margin-left:-19px;border-radius:4px;background:var(--line)}
+  .dlg dl{padding:0 20px;grid-template-columns:45px 1fr;font-size:14px}
+  .dlg .acts{padding-left:20px;padding-right:20px}
 }
-
-
-.dlg .head{
-
-  padding:20px 22px 16px;
-
-  border-top:6px solid var(--c);
-}
-
-
-.dlg h3{
-
-  margin:0;
-
-  font-size:22px;
-
-  font-weight:900;
-
-  overflow-wrap:anywhere;
-}
-
-
-.dlg .when{
-
-  margin-top:4px;
-
-  font-family:
-    "Barlow Condensed",
-    "Noto Sans TC",
-    sans-serif;
-
-  font-size:26px;
-
-  font-weight:700;
-
-  color:var(--brand);
-
-  overflow-wrap:anywhere;
-}
-
-
-.dlg dl{
-
-  margin:0;
-
-  padding:0 22px;
-
-  display:grid;
-
-  grid-template-columns:52px 1fr;
-
-  gap:12px 8px;
-
-  font-size:15px;
-}
-
-
-.dlg dt{
-
-  color:var(--mute);
-
-  white-space:nowrap;
-}
-
-
-.dlg dd{
-
-  margin:0;
-
-  word-break:break-word;
-
-  overflow-wrap:anywhere;
-}
-
-
-.badge{
-
-  display:inline-block;
-
-  padding:1px 11px;
-
-  border-radius:999px;
-
-  color:#fff;
-
-  font-size:13px;
-
-  font-weight:700;
-}
-
-
-.dlg a.lnk{
-
-  color:var(--brand);
-
-  overflow-wrap:anywhere;
-}
-
-
-.dlg .acts{
-
-  display:flex;
-
-  gap:10px;
-
-  padding:22px;
-}
-
-
-.dlg .acts a,
-.dlg .acts button{
-
-  flex:1;
-
-  min-width:0;
-
-  text-align:center;
-
-  padding:11px;
-
-  border-radius:12px;
-
-  font-size:15px;
-
-  font-weight:700;
-
-  cursor:pointer;
-
-  text-decoration:none;
-}
-
-
-.dlg .acts a{
-
-  background:var(--brand);
-
-  color:var(--on-brand);
-
-  border:0;
-}
-
-
-.dlg .acts button{
-
-  background:var(--chip);
-
-  color:var(--ink);
-
-  border:0;
-}
-
-
-/* =========================================================
-   平板 RWD
-========================================================= */
-
-@media (max-width:900px){
-
-  .hero{
-    padding:
-      20px 18px 68px;
-  }
-
-
-  .wrap{
-    padding-left:14px;
-    padding-right:14px;
-  }
-
-
-  .filters{
-    padding:16px;
-  }
-
-
-  /*
-    平板時每一天稍微縮小
-  */
-
-  .week{
-    grid-auto-columns:
-      minmax(
-        220px,
-        30vw
-      );
-  }
-
-}
-
-
-/* =========================================================
-   手機 RWD
-========================================================= */
-
-@media (max-width:600px){
-
-  /* ---------- 頁首 ---------- */
-
-  .hero{
-
-    padding:
-      16px 16px 60px;
-  }
-
-
-  .hero svg{
-
-    right:-70px;
-
-    opacity:.55;
-  }
-
-
-  .theme{
-
-    font-size:13px;
-
-    gap:8px;
-  }
-
-
-  .switch{
-
-    width:47px;
-
-    height:28px;
-  }
-
-
-  .switch::after{
-
-    width:24px;
-
-    height:24px;
-  }
-
-
-  .switch[aria-checked=true]::after{
-
-    transform:translateX(19px);
-  }
-
-
-  h1{
-
-    margin-top:18px;
-
-    font-size:
-      clamp(
-        36px,
-        12vw,
-        48px
-      );
-  }
-
-
-  .sub{
-
-    font-size:14px;
-
-    line-height:1.6;
-
-    max-width:100%;
-  }
-
-
-  /* ---------- 主內容 ---------- */
-
-  .wrap{
-
-    margin-top:-38px;
-
-    padding:
-      0 10px 40px;
-  }
-
-
-  /* ---------- 篩選器 ---------- */
-
-  .filters{
-
-    border-radius:16px;
-
-    padding:14px;
-  }
-
-
-  .gs{
-
-    gap:14px;
-  }
-
-
-  .row{
-
-    gap:6px;
-  }
-
-
-  .row b{
-
-    width:100%;
-
-    flex-basis:100%;
-
-    margin-bottom:2px;
-  }
-
-
-  .chip{
-
-    padding:
-      6px 12px;
-
-    font-size:13px;
-  }
-
-
-  /*
-    強度按鈕比較多，
-    手機讓它們自然換行
-  */
-
-  #filters .row{
-
-    align-items:flex-start;
-  }
-
-
-  /* ---------- 地區 ---------- */
-
-  #dist{
-
-    margin-top:14px;
-  }
-
-
-  #dist .row{
-
-    align-items:center;
-  }
-
-
-  #dist .row b{
-
-    width:44px;
-
-    flex:0 0 44px;
-
-    margin:0;
-  }
-
-
-  #distBtn{
-
-    flex:1;
-
-    text-align:left;
-
-    min-width:0;
-
-    overflow:hidden;
-
-    text-overflow:ellipsis;
-
-    white-space:nowrap;
-  }
-
-
-  .panel{
-
-    padding:10px;
-  }
-
-
-  .opts{
-
-    grid-template-columns:
-      repeat(2,minmax(0,1fr));
-
-    gap:7px;
-  }
-
-
-  .opt{
-
-    min-width:0;
-
-    padding:8px;
-
-    font-size:13px;
-  }
-
-
-  .panel .hint{
-
-    font-size:12px;
-
-    line-height:1.6;
-  }
-
-
-  /* ---------- 數量 ---------- */
-
-  .count{
-
-    margin:
-      18px 4px 10px;
-
-    font-size:14px;
-  }
-
-
-  /* ---------- 週曆 ---------- */
-
-  .week{
-
-    /*
-      手機：
-      一次看到約 1 個多一點的日期，
-      明確提示使用者可以左右滑
-    */
-
-    grid-auto-columns:
-      minmax(
-        82vw,
-        82vw
-      );
-
-    gap:10px;
-
-    padding:
-      2px 2px 14px;
-
-    scroll-snap-type:
-      x mandatory;
-  }
-
-
-  .day{
-
-    min-height:auto;
-
-    border-radius:14px;
-  }
-
-
-  .day h2{
-
-    padding:
-      10px 12px;
-
-    font-size:16px;
-  }
-
-
-  .list{
-
-    padding:9px;
-
-    gap:8px;
-  }
-
-
-  /* ---------- 球團卡片 ---------- */
-
-  button.cls{
-
-    padding:
-      11px 11px 10px;
-
-    border-radius:11px;
-  }
-
-
-  .cls .t{
-
-    font-size:23px;
-  }
-
-
-  .cls .n{
-
-    font-size:14px;
-
-    line-height:1.45;
-  }
-
-
-  .cls .p{
-
-    font-size:12px;
-
-    line-height:1.5;
-  }
-
-
-  .cls .l{
-
-    font-size:12px;
-
-    margin-top:5px;
-  }
-
-
-  /* ---------- 詳細視窗 ---------- */
-
-  dialog{
-
-    width:
-      calc(100% - 20px);
-
-    max-width:none;
-
-    max-height:
-      calc(100dvh - 20px);
-
-    border-radius:17px;
-  }
-
-
-  .dlg .head{
-
-    padding:
-      17px 17px 14px;
-  }
-
-
-  .dlg h3{
-
-    font-size:20px;
-
-    line-height:1.4;
-  }
-
-
-  .dlg .when{
-
-    font-size:23px;
-  }
-
-
-  .dlg dl{
-
-    padding:
-      0 17px;
-
-    grid-template-columns:
-      45px 1fr;
-
-    gap:
-      10px 7px;
-
-    font-size:14px;
-  }
-
-
-  .dlg .acts{
-
-    padding:17px;
-
-    gap:8px;
-  }
-
-
-  .dlg .acts a,
-  .dlg .acts button{
-
-    padding:10px 8px;
-
-    font-size:14px;
-  }
-
-}
-
-
-/* =========================================================
-   超小手機
-========================================================= */
-
-@media (max-width:380px){
-
-  .hero{
-
-    padding:
-      14px 13px 56px;
-  }
-
-
-  .wrap{
-
-    margin-top:-34px;
-
-    padding:
-      0 8px 32px;
-  }
-
-
-  .filters{
-
-    padding:12px;
-  }
-
-
-  .chip{
-
-    padding:
-      5px 10px;
-
-    font-size:12px;
-  }
-
-
-  .opts{
-
-    gap:6px;
-  }
-
-
-  .opt{
-
-    padding:
-      7px;
-
-    font-size:12px;
-  }
-
-
-  .week{
-
-    grid-auto-columns:
-      88vw;
-  }
-
-
-  .cls .t{
-
-    font-size:21px;
-  }
-
-
-  .dlg dl{
-
-    grid-template-columns:
-      42px 1fr;
-
-    font-size:13px;
-  }
-
-}
-
-
-/* =========================================================
-   減少動畫
-========================================================= */
-
-@media (prefers-reduced-motion:reduce){
-
-  *{
-
-    transition:none!important;
-
-    scroll-behavior:auto!important;
-  }
-
-}
-
+@keyframes sheet{from{transform:translateY(100%)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
-
-
 <body>
 
-
-<!-- =======================================================
-     頁首
-======================================================== -->
-
 <header class="hero">
-
-  <svg
-    viewBox="0 0 300 144"
-    fill="none"
-    stroke="#fff"
-    stroke-opacity=".2"
-    stroke-width="2"
-    aria-hidden="true">
-
-    <rect
-      x="10"
-      y="8"
-      width="280"
-      height="128"/>
-
-    <path
-      d="
-        M10 17.6H290
-        M10 126.4H290
-        M150 8V136
-        M109 8V136
-        M191 8V136
-        M26 8V136
-        M274 8V136
-        M10 72H109
-        M191 72H290
-      "/>
-
+  <svg viewBox="0 0 300 144" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="2" aria-hidden="true">
+    <rect x="10" y="8" width="280" height="128"/>
+    <path d="M10 17.6H290M10 126.4H290M150 8V136M109 8V136M191 8V136M26 8V136M274 8V136M10 72H109M191 72H290"/>
   </svg>
-
-
   <div class="hero-in">
-
-    <div class="bar">
-
-      <div class="theme">
-
-        <span>
-          ☾ 深色模式
-        </span>
-
-        <button
-          class="switch"
-          id="themeSwitch"
-          role="switch"
-          aria-checked="false"
-          aria-label="深色模式">
-        </button>
-
-      </div>
-
+    <div>
+      <h1>羽球開團</h1>
+      <p class="sub">桃園各區球敘 大家一起打羽球🏸</p>
     </div>
-
-
-    <h1>
-      羽球開團
-    </h1>
-
-
-    <p class="sub">
-      桃園各區球敘 大家一起打羽球🏸
-    </p>
-
+    <div class="theme">
+      <span>☾ 深色</span>
+      <button class="switch" id="themeSwitch" role="switch" aria-checked="false" aria-label="深色模式"></button>
+    </div>
   </div>
-
 </header>
 
-
-
-<!-- =======================================================
-     主內容
-======================================================== -->
-
 <main class="wrap">
-
-
-  <!-- 篩選器 -->
-
   <div class="filters">
-
-    <div
-      class="gs"
-      id="filters">
-    </div>
-
-
-    <!-- 地區 -->
-
-    <div id="dist">
-
-      <div class="row">
-
-        <b>
-          地區
-        </b>
-
-
-        <button
-          class="chip"
-          id="distBtn"
-          aria-expanded="false"
-          aria-controls="distPanel">
-
-          全部地區 ▾
-
-        </button>
-
-      </div>
-
-
-      <div
-        class="panel"
-        id="distPanel"
-        hidden>
-
-        <div
-          class="opts"
-          id="distOpts">
-        </div>
-
-
-        <p class="hint">
-
-          可勾選一個或多個地區；都不勾選則顯示全部。
-
-          <button
-            class="chip"
-            id="distClear"
-            style="
-              margin-left:6px;
-              padding:2px 12px;
-              background:var(--card);
-            ">
-
-            清除
-
-          </button>
-
-        </p>
-
-      </div>
-
-    </div>
-
+    <div class="gs" id="filters" style="display:grid;gap:12px"></div>
+    <div class="dds" id="dds"></div>
   </div>
 
-
-  <!-- 團數 -->
-
-  <div
-    class="count"
-    id="count">
-  </div>
-
-
-  <!-- 週曆 -->
-
-  <div
-    class="week"
-    id="week">
-  </div>
-
-
+  <div class="count" id="count"></div>
+  <nav class="tabs" id="tabs" aria-label="選擇星期"></nav>
+  <div class="week" id="week"></div>
 </main>
-
-
-
-<!-- =======================================================
-     詳細視窗
-======================================================== -->
 
 <dialog id="dlg"></dialog>
 
-
-
 <script>
-
-
-/* =========================================================
-   開團資料
-========================================================= */
-
+/* ===== 開團資料 ===== */
 const classes = [
-
-  // ===== QQ梅子飯團 =====
-
-  {
-    day:6,
-    time:"14:00-17:00",
-    period:"下午",
-    name:"QQ梅子飯團｜全女團",
-    level:"初中階",
-    district:"龍潭區",
-    place:"龍潭中豐羽球館",
-    url:"缺"
-  },
-
-
-  // ===== 巧鬍羽球 =====
-
-  {
-    day:1,
-    time:"19:00-22:00",
-    period:"晚上",
-    name:"巧鬍羽球｜臨打團",
-    level:"程度不限",
-    district:"龍潭區",
-    place:"龍潭中豐羽球館",
-    url:"缺"
-  },
-
-
-  {
-    day:5,
-    time:"22:00-01:00",
-    period:"晚上",
-    name:"巧鬍羽球｜週五夜貓團",
-    level:"程度不限",
-    district:"龍潭區",
-    place:"龍潭中豐羽球館",
-    url:"缺"
-  },
-
-
-  // ===== Sherry 排點團 =====
-
-  {
-    day:2,
-    time:"19:00-22:00",
-    period:"晚上",
-    name:"Sherry 排點團",
-    level:"4-7級",
-    district:"龍潭區",
-    place:"龍潭中豐羽球館",
-    url:"缺"
-  },
-
-
-  {
-    day:6,
-    time:"09:00-12:00",
-    period:"上午",
-    name:"Sherry 排點團",
-    level:"新手～初中階",
-    district:"龍潭區",
-    place:"龍潭中豐羽球館",
-    url:"缺"
-  },
-
-
-  {
-    day:6,
-    time:"14:00-17:00",
-    period:"下午",
-    name:"Sherry 排點團",
-    level:"新手～初中階",
-    district:"龍潭區",
-    place:"龍潭中豐羽球館",
-    url:"缺"
-  },
-
-
-  {
-    day:7,
-    time:"09:00-12:00",
-    period:"上午",
-    name:"Sherry 排點團",
-    level:"新手～初中階",
-    district:"龍潭區",
-    place:"龍潭中豐羽球館",
-    url:"缺"
-  },
-
-
-  {
-    day:7,
-    time:"14:00-17:00",
-    period:"下午",
-    name:"Sherry 排點團",
-    level:"新手～初中階",
-    district:"龍潭區",
-    place:"龍潭中豐羽球館",
-    url:"缺"
-  },
-
-
-  // ===== 莎豬小隊 =====
-
-  {
-    day:1,
-    time:"13:00-16:00",
-    period:"下午",
-    name:"莎豬小隊｜歡樂羽球團",
-    level:"3-7級",
-    district:"中壢區",
-    place:"中壢羽宙人球館｜培英路169號",
-    url:"缺"
-  },
-
-
-  {
-    day:2,
-    time:"13:00-16:00",
-    period:"下午",
-    name:"莎豬小隊｜歡樂羽球團",
-    level:"3-7級",
-    district:"中壢區",
-    place:"中壢羽宙人球館｜培英路169號",
-    url:"缺"
-  },
-
-
-  {
-    day:4,
-    time:"13:00-16:00",
-    period:"下午",
-    name:"莎豬小隊｜歡樂羽球團",
-    level:"3-7級",
-    district:"中壢區",
-    place:"中壢羽宙人球館｜培英路169號",
-    url:"缺"
-  },
-
-
-  {
-    day:5,
-    time:"13:00-16:00",
-    period:"下午",
-    name:"莎豬小隊｜歡樂羽球團",
-    level:"3-7級",
-    district:"中壢區",
-    place:"中壢羽宙人球館｜培英路169號",
-    url:"缺"
-  },
-
-
-  {
-    day:7,
-    time:"13:00-16:00",
-    period:"下午",
-    name:"莎豬小隊｜歡樂羽球團",
-    level:"3-7級",
-    district:"中壢區",
-    place:"中壢羽宙人球館｜培英路169號",
-    url:"缺"
-  },
-
-
-  // ===== 高飛米線團 =====
-
-  {
-    day:2,
-    time:"13:30-16:30",
-    period:"下午",
-    name:"高飛米線團",
-    level:"缺",
-    district:"平鎮區",
-    place:"高飛羽球正義館｜正義路156號",
-    url:"缺"
-  },
-
-
-  {
-    day:4,
-    time:"13:30-16:30",
-    period:"下午",
-    name:"高飛米線團",
-    level:"缺",
-    district:"平鎮區",
-    place:"高飛羽球正義館｜正義路156號",
-    url:"缺"
-  },
-
-
-  // ===== 77桃園羽球館｜羽嘉同行 =====
-
-  {
-    day:1,
-    time:"09:00-12:00",
-    period:"上午",
-    name:"羽嘉同行",
-    level:"程度不限",
-    district:"桃園區",
-    place:"77桃園羽球館",
-    url:"缺"
-  },
-
-
-  {
-    day:3,
-    time:"09:00-12:00",
-    period:"上午",
-    name:"羽嘉同行",
-    level:"程度不限",
-    district:"桃園區",
-    place:"77桃園羽球館",
-    url:"缺"
-  },
-
-
-  {
-    day:5,
-    time:"09:00-12:00",
-    period:"上午",
-    name:"羽嘉同行",
-    level:"程度不限",
-    district:"桃園區",
-    place:"77桃園羽球館",
-    url:"缺"
-  },
-
-
-  {
-    day:6,
-    time:"09:00-12:00",
-    period:"上午",
-    name:"羽嘉同行",
-    level:"程度不限",
-    district:"桃園區",
-    place:"77桃園羽球館",
-    url:"缺"
-  },
-
-
-  // ===== 文中羽球館 =====
-
-  {
-    day:6,
-    time:"20:00-23:00",
-    period:"晚上",
-    name:"櫃檯小弟暢打團",
-    level:"4-7級",
-    district:"桃園區",
-    place:"文中羽球館",
-    url:"缺"
-  }
-
+  {day:6,time:"14:00-17:00",period:"下午",name:"QQ梅子飯團｜全女團",level:"初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
+  {day:1,time:"19:00-22:00",period:"晚上",name:"巧鬍羽球｜臨打團",level:"程度不限",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
+  {day:5,time:"22:00-01:00",period:"晚上",name:"巧鬍羽球｜週五夜貓團",level:"程度不限",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
+  {day:2,time:"19:00-22:00",period:"晚上",name:"Sherry 排點團",level:"4-7級",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
+  {day:6,time:"09:00-12:00",period:"上午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
+  {day:6,time:"14:00-17:00",period:"下午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
+  {day:7,time:"09:00-12:00",period:"上午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
+  {day:7,time:"14:00-17:00",period:"下午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
+  ...[1,2,4,5,7].map(d=>({day:d,time:"13:00-16:00",period:"下午",name:"莎豬小隊｜歡樂羽球團",level:"3-7級",district:"中壢區",place:"中壢羽宙人球館｜培英路169號",url:"缺"})),
+  ...[2,4].map(d=>({day:d,time:"13:30-16:30",period:"下午",name:"高飛米線團",level:"缺",district:"平鎮區",place:"高飛羽球正義館｜正義路156號",url:"缺"})),
+  ...[1,3,5,6].map(d=>({day:d,time:"09:00-12:00",period:"上午",name:"羽嘉同行",level:"程度不限",district:"桃園區",place:"77桃園羽球館",url:"缺"})),
+  {day:6,time:"20:00-23:00",period:"晚上",name:"櫃檯小弟暢打團",level:"4-7級",district:"桃園區",place:"文中羽球館",url:"缺"}
 ];
 
-
-
-/* =========================================================
-   星期
-========================================================= */
-
-const dayNames = [
-  "一",
-  "二",
-  "三",
-  "四",
-  "五",
-  "六",
-  "日"
-];
-
-
-
-/* =========================================================
-   篩選群組
-========================================================= */
+const dayNames = ["一","二","三","四","五","六","日"];
+const dayColors = ["#0f8a6b","#2a7fc4","#7a5cd6","#d9467a","#e0702a","#b8820f","#d4493d"];
+const venueOf = c => c.place.split("｜")[0];
 
 const groups = [
-
-  {
-    key:"period",
-    label:"時段",
-    options:[
-      "上午",
-      "下午",
-      "晚上"
-    ]
-  },
-
-
-  {
-    key:"level",
-    label:"強度",
-
-    options:[
-      "程度不限",
-      "新手",
-      "新手～初中階",
-      "初中階",
-      "3-7級",
-      "4-7級",
-      "中階以上"
-    ]
-  },
-
-
-  {
-    key:"day",
-    label:"星期",
-    options:dayNames
-  }
-
+  {key:"period",label:"時段",options:["上午","下午","晚上"]},
+  {key:"level",label:"強度",options:["程度不限","新手","新手～初中階","初中階","3-7級","4-7級","中階以上"]},
+  {key:"day",label:"星期",options:dayNames}
 ];
-
-
-
-/* =========================================================
-   強度顏色
-========================================================= */
 
 const levelColor = {
-
-  "新手":"var(--l1)",
-
-  "中階以上":"var(--l3)",
-
-  "初階～初中階":"var(--l1)",
-
-  "新手～初中階":"var(--l1)",
-
-  "初中階":"var(--l2)",
-
-  "3-7級":"var(--l2)",
-
-  "4-7級":"var(--l2)",
-
-  "程度不限":"var(--mute)",
-
-  "缺":"var(--mute)"
-
+  "新手":"var(--l1)","中階以上":"var(--l3)","初階～初中階":"var(--l1)","新手～初中階":"var(--l1)",
+  "初中階":"var(--l2)","3-7級":"var(--l2)","4-7級":"var(--l2)","程度不限":"var(--l0)","缺":"var(--l0)"
 };
 
+const state = {period:"全部",level:"全部",day:"全部"};
 
+const districts = ["桃園區","中壢區","平鎮區","八德區","楊梅區","蘆竹區","大溪區","龍潭區","龜山區","大園區","觀音區","新屋區","復興區"];
+const venues = [...new Set(classes.map(venueOf))];
 
-/* =========================================================
-   篩選狀態
-========================================================= */
-
-const state = {
-
-  period:"全部",
-
-  level:"全部",
-
-  day:"全部"
-
-};
-
-
-
-/* =========================================================
-   地區
-========================================================= */
-
-const districts = [
-
-  "桃園區",
-  "中壢區",
-  "平鎮區",
-  "八德區",
-  "楊梅區",
-  "蘆竹區",
-  "大溪區",
-  "龍潭區",
-  "龜山區",
-  "大園區",
-  "觀音區",
-  "新屋區",
-  "復興區"
-
+const dds = [
+  {key:"district",label:"地區",all:"全部地區",items:districts,sel:new Set(),get:c=>c.district},
+  {key:"venue",label:"球館",all:"全部球館",items:venues,sel:new Set(),get:venueOf}
 ];
 
+const todayIdx = (new Date().getDay()+6)%7+1;
+const fmt = t => t.replace("-","–");
 
-const selDistricts = new Set();
+const $filters = document.getElementById("filters");
+const $week = document.getElementById("week");
+const $count = document.getElementById("count");
+const $tabs = document.getElementById("tabs");
+const $dds = document.getElementById("dds");
 
-
-
-/* =========================================================
-   今天
-========================================================= */
-
-const todayIdx =
-  (new Date().getDay() + 6) % 7 + 1;
-
-
-
-/* =========================================================
-   時間格式
-========================================================= */
-
-const fmt =
-  t => t.replace("-", "–");
-
-
-
-/* =========================================================
-   DOM
-========================================================= */
-
-const $filters =
-  document.getElementById("filters");
-
-const $week =
-  document.getElementById("week");
-
-const $count =
-  document.getElementById("count");
-
-
-
-/* =========================================================
-   渲染篩選器
-========================================================= */
-
+/* ===== 篩選器 ===== */
 function renderFilters(){
-
   $filters.innerHTML = "";
-
-
-  groups.forEach(g => {
-
-    const row =
-      document.createElement("div");
-
-
+  groups.forEach(g=>{
+    const row = document.createElement("div");
     row.className = "row";
-
-
-    row.innerHTML =
-      `<b>${g.label}</b>`;
-
-
-    [
-      "全部",
-      ...g.options
-    ].forEach(opt => {
-
-      const btn =
-        document.createElement("button");
-
-
-      btn.className =
-        "chip";
-
-
-      btn.textContent =
-        g.key === "day" &&
-        opt !== "全部"
-
-          ? "週" + opt
-
-          : opt;
-
-
-      btn.setAttribute(
-        "aria-pressed",
-        state[g.key] === opt
-      );
-
-
-      btn.onclick = () => {
-
-        state[g.key] = opt;
-
-        renderFilters();
-
-        renderWeek();
-
-      };
-
-
+    row.innerHTML = `<b>${g.label}</b>`;
+    ["全部",...g.options].forEach(opt=>{
+      const btn = document.createElement("button");
+      btn.className = "chip";
+      btn.textContent = g.key==="day" && opt!=="全部" ? "週"+opt : opt;
+      btn.setAttribute("aria-pressed", state[g.key]===opt);
+      btn.onclick = ()=>{state[g.key]=opt;renderFilters();renderWeek(true)};
       row.appendChild(btn);
-
     });
-
-
     $filters.appendChild(row);
-
   });
-
 }
 
+/* ===== 下拉選單（地區 / 球館） ===== */
+function ddLabel(d){
+  const n = d.sel.size;
+  const t = n===0 ? d.all : n===1 ? [...d.sel][0] : `已選 ${n} 個`;
+  return t + (d.panel.hidden ? " ▾" : " ▴");
+}
+dds.forEach(d=>{
+  const box = document.createElement("div");
+  box.className = "dd";
+  box.innerHTML = `<div class="row"><b>${d.label}</b><button class="chip ddBtn" aria-expanded="false"></button></div>`;
+  d.btn = box.querySelector("button");
 
+  d.panel = document.createElement("div");
+  d.panel.className = "panel";
+  d.panel.hidden = true;
+  d.panel.innerHTML = `
+    <div class="opts">${d.items.map(v=>`<label class="opt"><input type="checkbox" value="${v}">${v}</label>`).join("")}</div>
+    <p class="hint">可複選；都不勾選則顯示全部。 <button class="chip" style="margin-left:6px;padding:2px 12px;background:var(--card)">清除</button></p>`;
 
-/* =========================================================
-   渲染週曆
-========================================================= */
+  d.btn.textContent = ddLabel(d);
+  d.btn.onclick = ()=>{
+    const open = d.panel.hidden;
+    dds.forEach(o=>{o.panel.hidden=true;o.btn.setAttribute("aria-expanded","false");o.btn.textContent=ddLabel(o)});
+    d.panel.hidden = !open;
+    d.btn.setAttribute("aria-expanded",String(open));
+    d.btn.textContent = ddLabel(d);
+  };
+  d.panel.addEventListener("change",e=>{
+    e.target.checked ? d.sel.add(e.target.value) : d.sel.delete(e.target.value);
+    d.btn.textContent = ddLabel(d);
+    renderWeek(true);
+  });
+  d.panel.querySelector(".hint button").onclick = ()=>{
+    d.sel.clear();
+    d.panel.querySelectorAll("input").forEach(i=>i.checked=false);
+    d.btn.textContent = ddLabel(d);
+    renderWeek(true);
+  };
+  $dds.appendChild(box);
+  $dds.appendChild(d.panel);
+});
+/* 兩個面板各佔整列：把面板緊接在對應按鈕下方（桌機兩欄時放在最後） */
 
-function renderWeek(){
+/* ===== 週曆 ===== */
+let curDays = [1,2,3,4,5,6,7];
 
-  const filtered =
-    classes.filter(c =>
+function renderWeek(resetScroll){
+  const filtered = classes.filter(c =>
+    (state.period==="全部" || c.period===state.period) &&
+    (state.level==="全部" || c.level===state.level) &&
+    (state.day==="全部" || dayNames[c.day-1]===state.day) &&
+    dds.every(d=>d.sel.size===0 || d.sel.has(d.get(c)))
+  );
 
-      (
-        state.period === "全部" ||
-        c.period === state.period
-      )
-
-      &&
-
-      (
-        state.level === "全部" ||
-        c.level === state.level
-      )
-
-      &&
-
-      (
-        selDistricts.size === 0 ||
-        selDistricts.has(c.district)
-      )
-
-      &&
-
-      (
-        state.day === "全部" ||
-        dayNames[c.day - 1] === state.day
-      )
-
-    );
-
-
-  $count.innerHTML =
-    `共<b>${filtered.length}</b>個團`;
-
+  $count.innerHTML = `共<b>${filtered.length}</b>個團`;
 
   if(!filtered.length){
-
-    $week.innerHTML =
-      `
-        <div class="none">
-          沒有符合條件的開團，請調整篩選。
-        </div>
-      `;
-
+    $tabs.hidden = true;
+    $week.innerHTML = `<div class="none">沒有符合條件的開團，請調整篩選。</div>`;
     return;
-
   }
 
+  curDays = state.day==="全部" ? [1,2,3,4,5,6,7] : [dayNames.indexOf(state.day)+1];
 
-  const days =
-    state.day === "全部"
+  /* 頁籤 */
+  $tabs.hidden = curDays.length===1;
+  $tabs.innerHTML = curDays.map(d=>{
+    const n = filtered.filter(c=>c.day===d).length;
+    return `<button class="tab${d===todayIdx?" now":""}" style="--dc:${dayColors[d-1]}" role="tab" data-d="${d}" aria-selected="false"><span>週${dayNames[d-1]}</span><i>${n}</i></button>`;
+  }).join("");
 
-      ? [1,2,3,4,5,6,7]
+  $week.innerHTML = curDays.map(d=>{
+    const items = filtered.filter(c=>c.day===d).sort((a,b)=>a.time.localeCompare(b.time));
+    const body = items.length ? items.map(c=>`
+      <button class="cls" data-i="${classes.indexOf(c)}" style="--c:${levelColor[c.level]||"var(--l0)"}">
+        <div class="t">${fmt(c.time)}</div>
+        <div class="n">${c.name}</div>
+        <div class="p">${c.place.replace("｜"," ・ ")}</div>
+        <div class="l">${c.level}</div>
+      </button>`).join("") : `<div class="empty">本日無符合的團</div>`;
+    return `
+      <section class="day${d===todayIdx?" today":""}" data-d="${d}" style="--dc:${dayColors[d-1]}">
+        <h2><span>週${dayNames[d-1]} <small>${items.length} 團</small></span>${d===todayIdx?`<span class="today-tag">今天</span>`:""}</h2>
+        <div class="list">${body}</div>
+      </section>`;
+  }).join("");
 
-      : [
-          dayNames.indexOf(state.day) + 1
-        ];
-
-
-  $week.innerHTML =
-    days.map(d => {
-
-
-      const items =
-        filtered
-
-          .filter(c =>
-            c.day === d
-          )
-
-          .sort((a,b) =>
-            a.time.localeCompare(b.time)
-          );
-
-
-      const body =
-        items.length
-
-
-          ? items.map(c => `
-
-              <button
-                class="cls"
-                data-i="${classes.indexOf(c)}"
-                style="
-                  --c:${
-                    levelColor[c.level]
-                    || "var(--mute)"
-                  };
-                ">
-
-                <div class="t">
-                  ${fmt(c.time)}
-                </div>
-
-                <div class="n">
-                  ${c.name}
-                </div>
-
-                <div class="p">
-                  ${c.place}
-                </div>
-
-                <div class="l">
-                  ${c.level}
-                </div>
-
-              </button>
-
-            `).join("")
-
-
-          : `
-              <div class="empty">
-                本日無符合的團
-              </div>
-            `;
-
-
-      const today =
-        d === todayIdx;
-
-
-      return `
-
-        <section
-          class="day${today ? " today" : ""}">
-
-          <h2>
-
-            <span>
-              週${dayNames[d-1]}
-            </span>
-
-            ${
-              today
-
-                ? `
-                  <span class="today-tag">
-                    今天
-                  </span>
-                `
-
-                : ""
-            }
-
-          </h2>
-
-
-          <div class="list">
-
-            ${body}
-
-          </div>
-
-        </section>
-
-      `;
-
-    }).join("");
-
+  if(resetScroll) goTo(curDays.includes(todayIdx)?todayIdx:curDays[0],false);
+  syncTab();
 }
 
-
-
-/* =========================================================
-   詳細視窗
-========================================================= */
-
-const $dlg =
-  document.getElementById("dlg");
-
-
-$week.addEventListener(
-  "click",
-  e => {
-
-    const b =
-      e.target.closest(
-        "button.cls"
-      );
-
-
-    if(!b) return;
-
-
-    const c =
-      classes[b.dataset.i];
-
-
-    const color =
-      levelColor[c.level]
-      || "var(--mute)";
-
-
-    $dlg.innerHTML = `
-
-      <div
-        class="dlg"
-        style="--c:${color}">
-
-
-        <div class="head">
-
-          <h3>
-            ${c.name}
-          </h3>
-
-
-          <div class="when">
-
-            週${dayNames[c.day-1]}
-            ${"　"}
-            ${fmt(c.time)}
-
-          </div>
-
-        </div>
-
-
-        <dl>
-
-
-          <dt>
-            地點
-          </dt>
-
-          <dd>
-            ${c.district}・${c.place}
-          </dd>
-
-
-          <dt>
-            時間
-          </dt>
-
-          <dd>
-            週${dayNames[c.day-1]}
-            ${c.time}
-          </dd>
-
-
-          <dt>
-            程度
-          </dt>
-
-          <dd>
-
-            <span
-              class="badge"
-              style="
-                background:${color}
-              ">
-
-              ${c.level}
-
-            </span>
-
-          </dd>
-
-
-          <dt>
-            連結
-          </dt>
-
-
-          <dd>
-
-            ${
-              c.url === "缺"
-
-                ? "缺"
-
-                : `
-                  <a
-                    class="lnk"
-                    href="${c.url}"
-                    target="_blank"
-                    rel="noopener">
-
-                    ${c.url}
-
-                  </a>
-                `
-            }
-
-          </dd>
-
-
-        </dl>
-
-
-        <div class="acts">
-
-
-          ${
-            c.url === "缺"
-
-              ? `
-
-                <button
-                  id="close"
-                  style="width:100%">
-
-                  關閉
-
-                </button>
-
-              `
-
-              : `
-
-                <a
-                  href="${c.url}"
-                  target="_blank"
-                  rel="noopener">
-
-                  前往報名
-
-                </a>
-
-
-                <button id="close">
-
-                  關閉
-
-                </button>
-
-              `
-          }
-
-
-        </div>
-
-
+/* 頁籤 ←→ 週曆 同步 */
+function goTo(d,smooth){
+  const el = $week.querySelector(`.day[data-d="${d}"]`);
+  if(el) $week.scrollTo({left:el.offsetLeft,behavior:smooth?"smooth":"auto"});
+}
+function syncTab(){
+  const days = [...$week.querySelectorAll(".day")];
+  if(!days.length) return;
+  let best = days[0];
+  days.forEach(el=>{ if(Math.abs(el.offsetLeft-$week.scrollLeft) < Math.abs(best.offsetLeft-$week.scrollLeft)) best = el; });
+  $tabs.querySelectorAll(".tab").forEach(t=>{
+    const on = t.dataset.d===best.dataset.d;
+    t.setAttribute("aria-selected",on);
+    if(on) t.scrollIntoView({inline:"center",block:"nearest"});
+  });
+}
+let raf = 0;
+$week.addEventListener("scroll",()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(syncTab)},{passive:true});
+$tabs.addEventListener("click",e=>{
+  const t = e.target.closest(".tab");
+  if(t) goTo(+t.dataset.d,true);
+});
+
+/* ===== 詳細視窗 ===== */
+const $dlg = document.getElementById("dlg");
+$week.addEventListener("click",e=>{
+  const b = e.target.closest("button.cls");
+  if(!b) return;
+  const c = classes[b.dataset.i];
+  const color = levelColor[c.level]||"var(--l0)";
+  const [venue,addr] = c.place.split("｜");
+  const dn = dayNames[c.day-1];
+
+  $dlg.innerHTML = `
+    <div class="dlg" style="--c:${color}">
+      <div class="head">
+        <h3>${c.name}</h3>
+        <div class="when">週${dn}　${fmt(c.time)}</div>
       </div>
+      <dl>
+        <dt>球館</dt><dd>${c.district}・${venue}</dd>
+        ${addr?`<dt>地址</dt><dd>${addr}</dd>`:""}
+        <dt>時間</dt><dd>週${dn} ${c.time}</dd>
+        <dt>程度</dt><dd><span class="badge" style="background:${color}">${c.level}</span></dd>
+        <dt>連結</dt><dd>${c.url==="缺"?"缺":`<a class="lnk" href="${c.url}" target="_blank" rel="noopener">${c.url}</a>`}</dd>
+      </dl>
+      <div class="acts">
+        ${c.url==="缺"?`<button id="close" style="width:100%">關閉</button>`
+          :`<a href="${c.url}" target="_blank" rel="noopener">前往報名</a><button id="close">關閉</button>`}
+      </div>
+    </div>`;
+  $dlg.showModal();
+  document.getElementById("close").onclick = ()=>$dlg.close();
+});
+$dlg.addEventListener("click",e=>{ if(e.target===$dlg) $dlg.close(); });
 
-    `;
-
-
-    $dlg.showModal();
-
-
-    document
-      .getElementById("close")
-      .onclick =
-        () => $dlg.close();
-
-  }
-);
-
-
-
-/* 點擊背景關閉 */
-
-$dlg.addEventListener(
-  "click",
-  e => {
-
-    if(e.target === $dlg){
-
-      $dlg.close();
-
-    }
-
-  }
-);
-
-
-
-/* =========================================================
-   地區篩選
-========================================================= */
-
-const $distBtn =
-  document.getElementById("distBtn");
-
-
-const $distPanel =
-  document.getElementById("distPanel");
-
-
-const $distOpts =
-  document.getElementById("distOpts");
-
-
-
-function distLabel(){
-
-  const n =
-    selDistricts.size;
-
-
-  const t =
-
-    n === 0
-
-      ? "全部地區"
-
-      : n === 1
-
-        ? [...selDistricts][0]
-
-        : `已選 ${n} 個地區`;
-
-
-  return t +
-    (
-      !$distPanel.hidden
-        ? " ▴"
-        : " ▾"
-    );
-
+/* ===== 亮色 / 深色 ===== */
+const root = document.documentElement;
+function setTheme(t,save){
+  root.setAttribute("data-theme",t);
+  document.getElementById("themeSwitch").setAttribute("aria-checked",t==="dark");
+  if(save){ try{localStorage.setItem("theme",t)}catch(e){} }
 }
-
-
-
-/* 建立地區選項 */
-
-$distOpts.innerHTML =
-
-  districts.map(d => `
-
-    <label class="opt">
-
-      <input
-        type="checkbox"
-        value="${d}">
-
-      ${d}
-
-    </label>
-
-  `).join("");
-
-
-
-/* 地區開關 */
-
-$distBtn.onclick = () => {
-
-  $distPanel.hidden =
-    !$distPanel.hidden;
-
-
-  $distBtn.setAttribute(
-    "aria-expanded",
-    !$distPanel.hidden
-  );
-
-
-  $distBtn.textContent =
-    distLabel();
-
-};
-
-
-
-/* 地區勾選 */
-
-$distOpts.addEventListener(
-  "change",
-  e => {
-
-    e.target.checked
-
-      ? selDistricts.add(
-          e.target.value
-        )
-
-      : selDistricts.delete(
-          e.target.value
-        );
-
-
-    $distBtn.textContent =
-      distLabel();
-
-
-    renderWeek();
-
-  }
-);
-
-
-
-/* 清除地區 */
-
-document
-  .getElementById("distClear")
-  .onclick = () => {
-
-    selDistricts.clear();
-
-
-    $distOpts
-      .querySelectorAll("input")
-      .forEach(
-        i => i.checked = false
-      );
-
-
-    $distBtn.textContent =
-      distLabel();
-
-
-    renderWeek();
-
-  };
-
-
-
-/* =========================================================
-   亮色 / 深色
-========================================================= */
-
-const root =
-  document.documentElement;
-
-
-function setTheme(t, save){
-
-  root.setAttribute(
-    "data-theme",
-    t
-  );
-
-
-  document
-    .getElementById("themeSwitch")
-    .setAttribute(
-      "aria-checked",
-      t === "dark"
-    );
-
-
-  if(save){
-
-    try{
-
-      localStorage.setItem(
-        "theme",
-        t
-      );
-
-    }catch(e){}
-
-  }
-
-}
-
-
-
 let saved = null;
+try{saved = localStorage.getItem("theme")}catch(e){}
+setTheme(saved || (matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),false);
+document.getElementById("themeSwitch").onclick = ()=>setTheme(root.getAttribute("data-theme")==="dark"?"light":"dark",true);
 
-
-try{
-
-  saved =
-    localStorage.getItem(
-      "theme"
-    );
-
-}catch(e){}
-
-
-
-setTheme(
-
-  saved
-
-  ||
-
-  (
-    matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches
-
-      ? "dark"
-
-      : "light"
-  ),
-
-  false
-
-);
-
-
-
-/* 深色模式切換 */
-
-document
-  .getElementById("themeSwitch")
-  .onclick = () => {
-
-    setTheme(
-
-      root.getAttribute(
-        "data-theme"
-      ) === "dark"
-
-        ? "light"
-
-        : "dark",
-
-      true
-
-    );
-
-  };
-
-
-
-/* =========================================================
-   初始化
-========================================================= */
-
+/* ===== 初始化 ===== */
 renderFilters();
-
-renderWeek();
-
+renderWeek(true);
+addEventListener("resize",()=>goTo(curDays.includes(todayIdx)?todayIdx:curDays[0],false));
 </script>
-
 </body>
 </html>
