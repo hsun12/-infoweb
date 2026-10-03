@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -7,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
 <style>
 :root{
   color-scheme:light;
@@ -16,6 +18,7 @@
   --glass:rgba(255,255,255,.78);
   --shadow:0 8px 28px rgba(16,35,29,.10);
 }
+
 :root[data-theme="dark"]{
   color-scheme:dark;
   --bg:#0a1310;--card:#12201b;--ink:#e8f1ed;--mute:#8fa69e;--line:#233830;--chip:#192a24;
@@ -24,226 +27,967 @@
   --glass:rgba(10,19,16,.78);
   --shadow:0 8px 28px rgba(0,0,0,.45);
 }
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{overflow-x:hidden;scroll-padding-top:env(safe-area-inset-top,0px)}
+
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent
+}
+
+html{
+  overflow-x:hidden;
+  scroll-padding-top:env(safe-area-inset-top,0px)
+}
+
 body{
-  margin:0;background:var(--bg);color:var(--ink);line-height:1.5;overflow-x:hidden;
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.5;
+  overflow-x:hidden;
   font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
   -webkit-font-smoothing:antialiased;
 }
-button{font-family:inherit}
+
+button{
+  font-family:inherit
+}
 
 /* ---------- 頁首 ---------- */
 .hero{
-  position:relative;overflow:hidden;color:#fff;
+  position:relative;
+  overflow:hidden;
+  color:#fff;
   background:linear-gradient(135deg,var(--hero1),var(--hero2));
   padding:calc(18px + env(safe-area-inset-top,0px)) 20px 70px;
 }
-.hero svg{position:absolute;right:-30px;top:-14px;height:calc(100% + 28px);width:auto;opacity:.85;pointer-events:none}
-.hero-in{position:relative;max-width:1400px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
-h1{margin:0;font-size:clamp(30px,5vw,48px);font-weight:900;letter-spacing:.06em;line-height:1.1}
-.sub{margin:6px 0 0;color:rgba(255,255,255,.82);font-size:14px}
-.theme{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.88);flex-shrink:0;padding-bottom:4px}
-.switch{position:relative;width:48px;height:29px;border:0;border-radius:999px;background:rgba(255,255,255,.28);cursor:pointer;padding:0;transition:background .25s}
-.switch::after{content:"";position:absolute;top:2px;left:2px;width:25px;height:25px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.3);transition:transform .25s}
-.switch[aria-checked=true]{background:#34c759}
-.switch[aria-checked=true]::after{transform:translateX(19px)}
-.switch:focus-visible,.chip:focus-visible,button.cls:focus-visible,.tab:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-.switch:focus-visible{outline-color:#fff}
+
+.hero svg{
+  position:absolute;
+  right:-30px;
+  top:-14px;
+  height:calc(100% + 28px);
+  width:auto;
+  opacity:.85;
+  pointer-events:none
+}
+
+.hero-in{
+  position:relative;
+  max-width:1400px;
+  margin:0 auto;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px
+}
+
+h1{
+  margin:0;
+  font-size:clamp(30px,5vw,48px);
+  font-weight:900;
+  letter-spacing:.06em;
+  line-height:1.1
+}
+
+.sub{
+  margin:6px 0 0;
+  color:rgba(255,255,255,.82);
+  font-size:14px
+}
+
+.theme{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:13px;
+  color:rgba(255,255,255,.88);
+  flex-shrink:0;
+  padding-bottom:4px
+}
+
+.switch{
+  position:relative;
+  width:48px;
+  height:29px;
+  border:0;
+  border-radius:999px;
+  background:rgba(255,255,255,.28);
+  cursor:pointer;
+  padding:0;
+  transition:background .25s
+}
+
+.switch::after{
+  content:"";
+  position:absolute;
+  top:2px;
+  left:2px;
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 2px 4px rgba(0,0,0,.3);
+  transition:transform .25s
+}
+
+.switch[aria-checked=true]{
+  background:#34c759
+}
+
+.switch[aria-checked=true]::after{
+  transform:translateX(19px)
+}
+
+.switch:focus-visible,
+.chip:focus-visible,
+button.cls:focus-visible,
+.tab:focus-visible{
+  outline:2px solid var(--brand);
+  outline-offset:2px
+}
+
+.switch:focus-visible{
+  outline-color:#fff
+}
 
 /* ---------- 主體 ---------- */
-.wrap{max-width:1400px;margin:-44px auto 0;padding:0 clamp(10px,2vw,20px) calc(40px + env(safe-area-inset-bottom,0px));position:relative}
+.wrap{
+  max-width:1400px;
+  margin:-44px auto 0;
+  padding:0 clamp(10px,2vw,20px) calc(40px + env(safe-area-inset-bottom,0px));
+  position:relative
+}
 
-.filters{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
-.fhead{display:flex;align-items:center;justify-content:space-between;padding:14px 18px 2px}
-.fhead h2{margin:0;font-size:15px;font-weight:900;letter-spacing:.05em}
-.reset{border:0;background:none;color:var(--brand);font-size:13px;font-weight:700;cursor:pointer;padding:4px 10px;border-radius:999px}
-.reset[hidden]{display:none}
-.reset:hover{background:var(--chip)}
-.fbody{display:grid;gap:12px;padding:10px 18px 16px}
-.frow{display:grid;grid-template-columns:40px minmax(0,1fr);align-items:center;gap:8px}
-.fl{font-size:13px;font-weight:700;color:var(--mute)}
-.fopts{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px;margin:-2px}
-.fopts::-webkit-scrollbar{display:none}
+.filters{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  box-shadow:var(--shadow);
+  overflow:hidden
+}
+
+.fhead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 18px 2px
+}
+
+.fhead h2{
+  margin:0;
+  font-size:15px;
+  font-weight:900;
+  letter-spacing:.05em
+}
+
+.reset{
+  border:0;
+  background:none;
+  color:var(--brand);
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  padding:4px 10px;
+  border-radius:999px
+}
+
+.reset[hidden]{
+  display:none
+}
+
+.reset:hover{
+  background:var(--chip)
+}
+
+.fbody{
+  display:grid;
+  gap:12px;
+  padding:10px 18px 16px
+}
+
+.frow{
+  display:grid;
+  grid-template-columns:40px minmax(0,1fr);
+  align-items:center;
+  gap:8px
+}
+
+.fl{
+  font-size:13px;
+  font-weight:700;
+  color:var(--mute)
+}
+
+.fopts{
+  display:flex;
+  gap:6px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  padding:2px;
+  margin:-2px
+}
+
+.fopts::-webkit-scrollbar{
+  display:none
+}
+
 .chip{
-  flex:0 0 auto;white-space:nowrap;border:0;background:var(--chip);color:var(--ink);
-  padding:7px 14px;border-radius:999px;font-size:14px;cursor:pointer;
-  transition:background .15s,color .15s,box-shadow .15s;
+  flex:0 0 auto;
+  white-space:nowrap;
+  border:0;
+  background:var(--chip);
+  color:var(--ink);
+  padding:7px 14px;
+  border-radius:999px;
+  font-size:14px;
+  cursor:pointer;
+  transition:background .15s,color .15s,box-shadow .15s
 }
-.chip:hover{background:color-mix(in srgb,var(--brand) 12%,var(--chip))}
-.chip[aria-pressed=true]{background:var(--brand);color:var(--on-brand);font-weight:700}
-/* 分段式（時段 / 星期） */
-.seg{background:var(--chip);border-radius:14px;padding:3px;margin:0;gap:2px;justify-self:start;max-width:100%}
-.seg .chip{flex:0 0 auto;min-width:52px;padding:6px 16px;background:transparent;border-radius:11px;text-align:center}
-.seg .chip:hover{background:color-mix(in srgb,var(--brand) 10%,transparent)}
-.seg .chip[aria-pressed=true]{background:var(--brand);color:var(--on-brand);box-shadow:0 2px 6px rgba(0,0,0,.18)}
 
-/* 下拉欄位（地區 / 球館） */
-.dds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:14px 18px 16px;border-top:1px solid var(--line);background:color-mix(in srgb,var(--chip) 45%,var(--card))}
-.dd{min-width:0}
+.chip:hover{
+  background:color-mix(in srgb,var(--brand) 12%,var(--chip))
+}
+
+.chip[aria-pressed=true]{
+  background:var(--brand);
+  color:var(--on-brand);
+  font-weight:700
+}
+
+.seg{
+  background:var(--chip);
+  border-radius:14px;
+  padding:3px;
+  margin:0;
+  gap:2px;
+  justify-self:start;
+  max-width:100%
+}
+
+.seg .chip{
+  flex:0 0 auto;
+  min-width:52px;
+  padding:6px 16px;
+  background:transparent;
+  border-radius:11px;
+  text-align:center
+}
+
+.seg .chip:hover{
+  background:color-mix(in srgb,var(--brand) 10%,transparent)
+}
+
+.seg .chip[aria-pressed=true]{
+  background:var(--brand);
+  color:var(--on-brand);
+  box-shadow:0 2px 6px rgba(0,0,0,.18)
+}
+
+/* ---------- 下拉欄位 ---------- */
+.dds{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  padding:14px 18px 16px;
+  border-top:1px solid var(--line);
+  background:color-mix(in srgb,var(--chip) 45%,var(--card))
+}
+
+.dd{
+  min-width:0
+}
+
 .field{
-  width:100%;display:flex;align-items:center;gap:8px;height:46px;padding:0 12px 0 14px;
-  border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);
-  font-size:14px;cursor:pointer;text-align:left;transition:border-color .15s,box-shadow .15s;
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  height:46px;
+  padding:0 12px 0 14px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--card);
+  color:var(--ink);
+  font-size:14px;
+  cursor:pointer;
+  text-align:left;
+  transition:border-color .15s,box-shadow .15s
 }
-.field:hover{border-color:color-mix(in srgb,var(--brand) 40%,var(--line))}
-.field[aria-expanded=true]{border-color:var(--brand);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 18%,transparent)}
-.dd.on .field{border-color:var(--brand)}
-.field .k{color:var(--mute);font-size:12px;font-weight:700;flex:0 0 auto}
-.field .v{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.dd.on .field .v{font-weight:700;color:var(--brand)}
-.field .n{font-style:normal;font-size:11px;font-weight:700;background:var(--brand);color:var(--on-brand);border-radius:999px;min-width:18px;height:18px;line-height:18px;text-align:center;padding:0 5px}
-.field .n[hidden]{display:none}
-.chev{flex:0 0 auto;color:var(--mute);transition:transform .2s}
-.field[aria-expanded=true] .chev{transform:rotate(180deg)}
-.panel{grid-column:1/-1;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;box-shadow:var(--shadow)}
-.panel[hidden]{display:none}
-.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
-.opt{display:flex;align-items:center;gap:8px;padding:9px 11px;background:var(--chip);border:1px solid transparent;border-radius:12px;font-size:14px;cursor:pointer;min-width:0}
-.opt input{accent-color:var(--brand);width:16px;height:16px;margin:0;flex:0 0 auto}
-.opt:has(input:checked){border-color:var(--brand);background:color-mix(in srgb,var(--brand) 10%,var(--card));font-weight:700}
-.pfoot{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
-.pfoot button{border:0;border-radius:999px;padding:7px 18px;font-size:13px;font-weight:700;cursor:pointer}
-.pfoot .clr{background:var(--chip);color:var(--ink)}
-.pfoot .ok{background:var(--brand);color:var(--on-brand)}
-.field:focus-visible,.reset:focus-visible,.pfoot button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 
-.count{margin:20px 4px 10px;font-size:14px;color:var(--mute)}
-.count b{color:var(--ink);font-size:20px;font-family:"Barlow Condensed",sans-serif;margin:0 3px}
+.field:hover{
+  border-color:color-mix(in srgb,var(--brand) 40%,var(--line))
+}
 
-/* ---------- 日期頁籤（手機 / 平板） ---------- */
+.field[aria-expanded=true]{
+  border-color:var(--brand);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 18%,transparent)
+}
+
+.dd.on .field{
+  border-color:var(--brand)
+}
+
+.field .k{
+  color:var(--mute);
+  font-size:12px;
+  font-weight:700;
+  flex:0 0 auto
+}
+
+.field .v{
+  flex:1;
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap
+}
+
+.dd.on .field .v{
+  font-weight:700;
+  color:var(--brand)
+}
+
+.field .n{
+  font-style:normal;
+  font-size:11px;
+  font-weight:700;
+  background:var(--brand);
+  color:var(--on-brand);
+  border-radius:999px;
+  min-width:18px;
+  height:18px;
+  line-height:18px;
+  text-align:center;
+  padding:0 5px
+}
+
+.field .n[hidden]{
+  display:none
+}
+
+.chev{
+  flex:0 0 auto;
+  color:var(--mute);
+  transition:transform .2s
+}
+
+.field[aria-expanded=true] .chev{
+  transform:rotate(180deg)
+}
+
+.panel{
+  grid-column:1/-1;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:12px;
+  box-shadow:var(--shadow)
+}
+
+.panel[hidden]{
+  display:none
+}
+
+.opts{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:8px
+}
+
+.opt{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 11px;
+  background:var(--chip);
+  border:1px solid transparent;
+  border-radius:12px;
+  font-size:14px;
+  cursor:pointer;
+  min-width:0
+}
+
+.opt input{
+  accent-color:var(--brand);
+  width:16px;
+  height:16px;
+  margin:0;
+  flex:0 0 auto
+}
+
+.opt:has(input:checked){
+  border-color:var(--brand);
+  background:color-mix(in srgb,var(--brand) 10%,var(--card));
+  font-weight:700
+}
+
+.pfoot{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  margin-top:12px
+}
+
+.pfoot button{
+  border:0;
+  border-radius:999px;
+  padding:7px 18px;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer
+}
+
+.pfoot .clr{
+  background:var(--chip);
+  color:var(--ink)
+}
+
+.pfoot .ok{
+  background:var(--brand);
+  color:var(--on-brand)
+}
+
+.field:focus-visible,
+.reset:focus-visible,
+.pfoot button:focus-visible{
+  outline:2px solid var(--brand);
+  outline-offset:2px
+}
+
+.count{
+  margin:20px 4px 10px;
+  font-size:14px;
+  color:var(--mute)
+}
+
+.count b{
+  color:var(--ink);
+  font-size:20px;
+  font-family:"Barlow Condensed",sans-serif;
+  margin:0 3px
+}
+
+/* ---------- 日期頁籤 ---------- */
 .tabs{
-  position:sticky;top:0;z-index:5;display:flex;gap:6px;
-  margin:0 -4px 10px;padding:8px 4px calc(8px) 4px;
+  position:sticky;
+  top:0;
+  z-index:5;
+  display:flex;
+  gap:6px;
+  margin:0 -4px 10px;
+  padding:8px 4px;
   padding-top:calc(8px + env(safe-area-inset-top,0px));
-  background:var(--glass);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);
+  background:var(--glass);
+  backdrop-filter:blur(14px) saturate(1.4);
+  -webkit-backdrop-filter:blur(14px) saturate(1.4)
 }
-.tabs[hidden]{display:none}
-.tab{
-  flex:1;min-width:0;border:0;border-radius:14px;background:var(--card);color:var(--mute);
-  padding:7px 0 6px;cursor:pointer;display:grid;justify-items:center;gap:0;line-height:1.25;
-  border:1px solid var(--line);transition:background .2s,color .2s,border-color .2s,transform .2s;
-}
-.tab span{font-size:13px;font-weight:700}
-.tab i{font-style:normal;font-family:"Barlow Condensed",sans-serif;font-size:17px;font-weight:700;color:var(--ink)}
-.tab.now span::after{content:"•";margin-left:2px;color:var(--brand)}
-.tab{--dc:var(--brand)}
-.tab[aria-selected=true]{background:var(--dc);color:#fff;border-color:var(--dc);transform:translateY(-1px)}
-.tab[aria-selected=true] i,.tab[aria-selected=true] span::after{color:#fff}
-.tab:not([aria-selected=true]) span{color:var(--dc)}
 
-/* ---------- 週曆：每一天剛好填滿螢幕寬 ---------- */
-.week{
-  position:relative;display:grid;grid-auto-flow:column;gap:12px;align-items:start;
-  grid-auto-columns:100%;               /* 手機：一天 = 一個螢幕寬 */
-  overflow-x:auto;overscroll-behavior-x:contain;
-  scroll-snap-type:x mandatory;scrollbar-width:none;
-  padding-bottom:6px;
+.tabs[hidden]{
+  display:none
 }
-.week::-webkit-scrollbar{display:none}
+
+.tab{
+  flex:1;
+  min-width:0;
+  border:0;
+  border-radius:14px;
+  background:var(--card);
+  color:var(--mute);
+  padding:7px 0 6px;
+  cursor:pointer;
+  display:grid;
+  justify-items:center;
+  gap:0;
+  line-height:1.25;
+  border:1px solid var(--line);
+  transition:background .2s,color .2s,border-color .2s,transform .2s
+}
+
+.tab span{
+  font-size:13px;
+  font-weight:700
+}
+
+.tab i{
+  font-style:normal;
+  font-family:"Barlow Condensed",sans-serif;
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink)
+}
+
+.tab.now span::after{
+  content:"•";
+  margin-left:2px;
+  color:var(--brand)
+}
+
+.tab{
+  --dc:var(--brand)
+}
+
+.tab[aria-selected=true]{
+  background:var(--dc);
+  color:#fff;
+  border-color:var(--dc);
+  transform:translateY(-1px)
+}
+
+.tab[aria-selected=true] i,
+.tab[aria-selected=true] span::after{
+  color:#fff
+}
+
+.tab:not([aria-selected=true]) span{
+  color:var(--dc)
+}
+
+/* ---------- 週曆 ---------- */
+.week{
+  position:relative;
+  display:grid;
+  grid-auto-flow:column;
+  gap:12px;
+  align-items:start;
+  grid-auto-columns:100%;
+  overflow-x:auto;
+  overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+  padding-bottom:6px
+}
+
+.week::-webkit-scrollbar{
+  display:none
+}
+
 .day{
   --dc:var(--brand);
-  scroll-snap-align:start;scroll-snap-stop:always;min-width:0;
-  border-radius:20px;overflow:hidden;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+  min-width:0;
+  border-radius:20px;
+  overflow:hidden;
   background:color-mix(in srgb,var(--card) 55%,transparent);
-  border:1.5px solid color-mix(in srgb,var(--dc) 38%,var(--line));
+  border:1.5px solid color-mix(in srgb,var(--dc) 38%,var(--line))
 }
+
 .day h2{
-  display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0;
-  padding:13px 16px;font-size:18px;font-weight:900;color:#fff;letter-spacing:.04em;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin:0;
+  padding:13px 16px;
+  font-size:18px;
+  font-weight:900;
+  color:#fff;
+  letter-spacing:.04em;
   background:linear-gradient(135deg,var(--dc),color-mix(in srgb,var(--dc) 72%,#000));
-  text-shadow:0 1px 2px rgba(0,0,0,.22);
+  text-shadow:0 1px 2px rgba(0,0,0,.22)
 }
-:root[data-theme="dark"] .day h2{background:linear-gradient(135deg,color-mix(in srgb,var(--dc) 82%,#000),color-mix(in srgb,var(--dc) 55%,#000))}
-.day h2 small{font-size:12px;font-weight:500;opacity:.88;letter-spacing:0}
-.day.today{border-color:var(--dc);box-shadow:0 0 0 2px var(--dc),0 8px 22px color-mix(in srgb,var(--dc) 30%,transparent)}
-.today-tag{font-size:12px;font-weight:700;padding:1px 10px;border-radius:999px;background:#fff;color:var(--dc);text-shadow:none;flex-shrink:0}
-:root[data-theme="dark"] .today-tag{color:#10231d}
-.list{padding:12px;display:grid;gap:12px}
+
+:root[data-theme="dark"] .day h2{
+  background:linear-gradient(
+    135deg,
+    color-mix(in srgb,var(--dc) 82%,#000),
+    color-mix(in srgb,var(--dc) 55%,#000)
+  )
+}
+
+.day h2 small{
+  font-size:12px;
+  font-weight:500;
+  opacity:.88;
+  letter-spacing:0
+}
+
+.day.today{
+  border-color:var(--dc);
+  box-shadow:
+    0 0 0 2px var(--dc),
+    0 8px 22px color-mix(in srgb,var(--dc) 30%,transparent)
+}
+
+.today-tag{
+  font-size:12px;
+  font-weight:700;
+  padding:1px 10px;
+  border-radius:999px;
+  background:#fff;
+  color:var(--dc);
+  text-shadow:none;
+  flex-shrink:0
+}
+
+:root[data-theme="dark"] .today-tag{
+  color:#10231d
+}
+
+.list{
+  padding:12px;
+  display:grid;
+  gap:12px
+}
 
 @media (min-width:640px){
-  .week{grid-auto-columns:calc((100% - 12px)/2);scroll-snap-type:x proximity}
+  .week{
+    grid-auto-columns:calc((100% - 12px)/2);
+    scroll-snap-type:x proximity
+  }
 }
+
 @media (min-width:900px){
-  .week{grid-auto-columns:calc((100% - 24px)/3)}
-}
-@media (min-width:1180px){          /* 桌機：七天一次全部塞進螢幕，不用左右滑 */
-  .tabs{display:none}
-  .week{grid-auto-columns:minmax(0,1fr);overflow:visible;gap:10px}
-  .day h2{padding:12px;font-size:16px}
-  .list{padding:8px}
+  .week{
+    grid-auto-columns:calc((100% - 24px)/3)
+  }
 }
 
-/* ---------- 球團卡片：彩色邊框 + 左側色條 + 淡色底 ---------- */
+@media (min-width:1180px){
+  .tabs{
+    display:none
+  }
+
+  .week{
+    grid-auto-columns:minmax(0,1fr);
+    overflow:visible;
+    gap:10px
+  }
+
+  .day h2{
+    padding:12px;
+    font-size:16px
+  }
+
+  .list{
+    padding:8px
+  }
+}
+
+/* ---------- 球團卡片 ---------- */
 button.cls{
-  width:100%;min-width:0;text-align:left;color:inherit;cursor:pointer;display:grid;gap:3px;
-  padding:12px 14px 11px 17px;border-radius:14px;position:relative;overflow:hidden;
+  width:100%;
+  min-width:0;
+  text-align:left;
+  color:inherit;
+  cursor:pointer;
+  display:grid;
+  gap:3px;
+  padding:12px 14px 11px 17px;
+  border-radius:14px;
+  position:relative;
+  overflow:hidden;
   border:1.5px solid color-mix(in srgb,var(--c) 55%,var(--line));
-  background:linear-gradient(135deg,color-mix(in srgb,var(--c) 13%,var(--card)),var(--card) 70%);
-  box-shadow:inset 5px 0 0 var(--c),0 1px 2px rgba(16,35,29,.06);
-  transition:transform .15s,box-shadow .15s,border-color .15s;
+  background:linear-gradient(
+    135deg,
+    color-mix(in srgb,var(--c) 13%,var(--card)),
+    var(--card) 70%
+  );
+  box-shadow:
+    inset 5px 0 0 var(--c),
+    0 1px 2px rgba(16,35,29,.06);
+  transition:transform .15s,box-shadow .15s,border-color .15s
 }
-button.cls:hover{transform:translateY(-2px);border-color:var(--c);box-shadow:inset 5px 0 0 var(--c),var(--shadow)}
-button.cls:active{transform:scale(.985)}
-.cls .t{font-family:"Barlow Condensed","Noto Sans TC",sans-serif;font-weight:700;font-size:23px;line-height:1.1;letter-spacing:.02em;white-space:nowrap}
-.cls .n{font-weight:700;overflow-wrap:anywhere;line-height:1.4}
-.cls .p{font-size:13px;color:var(--mute);overflow-wrap:anywhere}
-.cls .l{
-  justify-self:start;margin-top:6px;font-size:12px;font-weight:700;color:var(--c);
-  padding:2px 10px;border-radius:999px;background:color-mix(in srgb,var(--c) 15%,transparent);
-  border:1px solid color-mix(in srgb,var(--c) 35%,transparent);
-}
-.empty{color:var(--mute);font-size:13px;padding:10px 4px;text-align:center}
-.none{padding:56px 0;text-align:center;color:var(--mute)}
 
-/* ---------- 詳細視窗（手機為底部抽屜） ---------- */
-dialog{
-  border:0;border-radius:24px;background:var(--card);color:var(--ink);padding:0;
-  width:min(440px,calc(100% - 32px));max-height:calc(100dvh - 32px);
-  box-shadow:0 24px 64px rgba(0,0,0,.35);overflow:auto;
+button.cls:hover{
+  transform:translateY(-2px);
+  border-color:var(--c);
+  box-shadow:inset 5px 0 0 var(--c),var(--shadow)
 }
-dialog[open]{animation:pop .22s cubic-bezier(.2,.8,.2,1)}
-dialog::backdrop{background:rgba(5,15,11,.55);backdrop-filter:blur(4px)}
-@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
-.dlg .head{padding:20px 22px 16px;border-top:6px solid var(--c)}
-.dlg h3{margin:0;font-size:22px;font-weight:900;overflow-wrap:anywhere}
-.dlg .when{margin-top:4px;font-family:"Barlow Condensed","Noto Sans TC",sans-serif;font-size:26px;font-weight:700;color:var(--brand)}
-.dlg dl{margin:0;padding:0 22px;display:grid;grid-template-columns:52px 1fr;gap:12px 8px;font-size:15px}
-.dlg dt{color:var(--mute);white-space:nowrap}
-.dlg dd{margin:0;overflow-wrap:anywhere}
-.badge{display:inline-block;padding:1px 11px;border-radius:999px;color:#fff;font-size:13px;font-weight:700}
-.dlg a.lnk{color:var(--brand);overflow-wrap:anywhere}
-.dlg .acts{display:flex;gap:10px;padding:22px 22px calc(22px + env(safe-area-inset-bottom,0px))}
-.dlg .acts a,.dlg .acts button{flex:1;min-width:0;text-align:center;padding:12px;border-radius:14px;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;border:0}
-.dlg .acts a{background:var(--brand);color:var(--on-brand)}
-.dlg .acts button{background:var(--chip);color:var(--ink)}
+
+button.cls:active{
+  transform:scale(.985)
+}
+
+.cls .t{
+  font-family:"Barlow Condensed","Noto Sans TC",sans-serif;
+  font-weight:700;
+  font-size:23px;
+  line-height:1.1;
+  letter-spacing:.02em;
+  white-space:nowrap
+}
+
+.cls .n{
+  font-weight:700;
+  overflow-wrap:anywhere;
+  line-height:1.4
+}
+
+.cls .p{
+  font-size:13px;
+  color:var(--mute);
+  overflow-wrap:anywhere
+}
+
+.cls .l{
+  justify-self:start;
+  margin-top:6px;
+  font-size:12px;
+  font-weight:700;
+  color:var(--c);
+  padding:2px 10px;
+  border-radius:999px;
+  background:color-mix(in srgb,var(--c) 15%,transparent);
+  border:1px solid color-mix(in srgb,var(--c) 35%,transparent)
+}
+
+.empty{
+  color:var(--mute);
+  font-size:13px;
+  padding:10px 4px;
+  text-align:center
+}
+
+.none{
+  padding:56px 0;
+  text-align:center;
+  color:var(--mute)
+}
+
+/* ---------- 詳細視窗 ---------- */
+dialog{
+  border:0;
+  border-radius:24px;
+  background:var(--card);
+  color:var(--ink);
+  padding:0;
+  width:min(440px,calc(100% - 32px));
+  max-height:calc(100dvh - 32px);
+  box-shadow:0 24px 64px rgba(0,0,0,.35);
+  overflow:auto
+}
+
+dialog[open]{
+  animation:pop .22s cubic-bezier(.2,.8,.2,1)
+}
+
+dialog::backdrop{
+  background:rgba(5,15,11,.55);
+  backdrop-filter:blur(4px)
+}
+
+@keyframes pop{
+  from{
+    opacity:0;
+    transform:translateY(14px) scale(.98)
+  }
+  to{
+    opacity:1;
+    transform:none
+  }
+}
+
+.dlg .head{
+  padding:20px 22px 16px;
+  border-top:6px solid var(--c)
+}
+
+.dlg h3{
+  margin:0;
+  font-size:22px;
+  font-weight:900;
+  overflow-wrap:anywhere
+}
+
+.dlg .when{
+  margin-top:4px;
+  font-family:"Barlow Condensed","Noto Sans TC",sans-serif;
+  font-size:26px;
+  font-weight:700;
+  color:var(--brand)
+}
+
+.dlg dl{
+  margin:0;
+  padding:0 22px;
+  display:grid;
+  grid-template-columns:52px 1fr;
+  gap:12px 8px;
+  font-size:15px
+}
+
+.dlg dt{
+  color:var(--mute);
+  white-space:nowrap
+}
+
+.dlg dd{
+  margin:0;
+  overflow-wrap:anywhere
+}
+
+.badge{
+  display:inline-block;
+  padding:1px 11px;
+  border-radius:999px;
+  color:#fff;
+  font-size:13px;
+  font-weight:700
+}
+
+.dlg a.lnk{
+  color:var(--brand);
+  overflow-wrap:anywhere
+}
+
+.dlg .acts{
+  display:flex;
+  gap:10px;
+  padding:22px 22px calc(22px + env(safe-area-inset-bottom,0px))
+}
+
+.dlg .acts a,
+.dlg .acts button{
+  flex:1;
+  min-width:0;
+  text-align:center;
+  padding:12px;
+  border-radius:14px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  text-decoration:none;
+  border:0
+}
+
+.dlg .acts a{
+  background:var(--brand);
+  color:var(--on-brand)
+}
+
+.dlg .acts button{
+  background:var(--chip);
+  color:var(--ink)
+}
 
 @media (max-width:640px){
-  .hero{padding-bottom:62px}
-  .hero svg{right:-70px;opacity:.5}
-  .sub{font-size:13px}
-  .fhead{padding:13px 14px 0}
-  .fbody{padding:8px 14px 14px;gap:10px}
-  .frow{grid-template-columns:34px minmax(0,1fr)}
-  .chip{font-size:13px;padding:6px 12px}
-  .seg{justify-self:stretch}
-  .seg .chip{flex:1;min-width:0;padding:6px 0}
-  .dds{padding:12px 14px 14px;gap:8px}
-  .field{height:44px;padding:0 10px;gap:6px;font-size:13px}
-  .opts{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .opt{font-size:13px;padding:8px}
-  .cls .t{font-size:24px}
-  dialog{width:100%;max-width:none;margin:auto 0 0;border-radius:26px 26px 0 0;max-height:88dvh}
-  dialog[open]{animation:sheet .28s cubic-bezier(.2,.8,.2,1)}
-  .dlg .head{position:relative;padding:24px 20px 14px}
-  .dlg .head::before{content:"";position:absolute;top:10px;left:50%;width:38px;height:4px;margin-left:-19px;border-radius:4px;background:var(--line)}
-  .dlg dl{padding:0 20px;grid-template-columns:45px 1fr;font-size:14px}
-  .dlg .acts{padding-left:20px;padding-right:20px}
+  .hero{
+    padding-bottom:62px
+  }
+
+  .hero svg{
+    right:-70px;
+    opacity:.5
+  }
+
+  .sub{
+    font-size:13px
+  }
+
+  .fhead{
+    padding:13px 14px 0
+  }
+
+  .fbody{
+    padding:8px 14px 14px;
+    gap:10px
+  }
+
+  .frow{
+    grid-template-columns:34px minmax(0,1fr)
+  }
+
+  .chip{
+    font-size:13px;
+    padding:6px 12px
+  }
+
+  .seg{
+    justify-self:stretch
+  }
+
+  .seg .chip{
+    flex:1;
+    min-width:0;
+    padding:6px 0
+  }
+
+  .dds{
+    padding:12px 14px 14px;
+    gap:8px
+  }
+
+  .field{
+    height:44px;
+    padding:0 10px;
+    gap:6px;
+    font-size:13px
+  }
+
+  .opts{
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
+
+  .opt{
+    font-size:13px;
+    padding:8px
+  }
+
+  .cls .t{
+    font-size:24px
+  }
+
+  dialog{
+    width:100%;
+    max-width:none;
+    margin:auto 0 0;
+    border-radius:26px 26px 0 0;
+    max-height:88dvh
+  }
+
+  dialog[open]{
+    animation:sheet .28s cubic-bezier(.2,.8,.2,1)
+  }
+
+  .dlg .head{
+    position:relative;
+    padding:24px 20px 14px
+  }
+
+  .dlg .head::before{
+    content:"";
+    position:absolute;
+    top:10px;
+    left:50%;
+    width:38px;
+    height:4px;
+    margin-left:-19px;
+    border-radius:4px;
+    background:var(--line)
+  }
+
+  .dlg dl{
+    padding:0 20px;
+    grid-template-columns:45px 1fr;
+    font-size:14px
+  }
+
+  .dlg .acts{
+    padding-left:20px;
+    padding-right:20px
+  }
 }
-@keyframes sheet{from{transform:translateY(100%)}to{transform:none}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+@keyframes sheet{
+  from{
+    transform:translateY(100%)
+  }
+  to{
+    transform:none
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{
+    transition:none!important;
+    animation:none!important;
+    scroll-behavior:auto!important
+  }
+}
 </style>
 </head>
+
 <body>
 
 <header class="hero">
@@ -251,102 +995,458 @@ dialog::backdrop{background:rgba(5,15,11,.55);backdrop-filter:blur(4px)}
     <rect x="10" y="8" width="280" height="128"/>
     <path d="M10 17.6H290M10 126.4H290M150 8V136M109 8V136M191 8V136M26 8V136M274 8V136M10 72H109M191 72H290"/>
   </svg>
+
   <div class="hero-in">
     <div>
       <h1>羽球開團</h1>
       <p class="sub">桃園各區球敘 大家一起打羽球🏸</p>
     </div>
+
     <div class="theme">
       <span>☾ 深色</span>
-      <button class="switch" id="themeSwitch" role="switch" aria-checked="false" aria-label="深色模式"></button>
+      <button
+        class="switch"
+        id="themeSwitch"
+        role="switch"
+        aria-checked="false"
+        aria-label="深色模式">
+      </button>
     </div>
   </div>
 </header>
 
 <main class="wrap">
+
   <div class="filters">
-    <div class="fhead"><h2>篩選條件</h2><button class="reset" id="reset" hidden></button></div>
+
+    <div class="fhead">
+      <h2>篩選條件</h2>
+      <button class="reset" id="reset" hidden></button>
+    </div>
+
     <div class="fbody" id="filters"></div>
+
     <div class="dds" id="dds"></div>
+
   </div>
 
   <div class="count" id="count"></div>
+
   <nav class="tabs" id="tabs" aria-label="選擇星期"></nav>
+
   <div class="week" id="week"></div>
+
 </main>
 
 <dialog id="dlg"></dialog>
 
 <script>
-/* ===== 開團資料 ===== */
+
+/* =========================================================
+   開團資料
+========================================================= */
+
 const classes = [
-  {day:6,time:"14:00-17:00",period:"下午",name:"QQ梅子飯團｜全女團",level:"初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"缺"},
-  
-  {day:1,time:"19:00-22:00",period:"晚上",name:"巧鬍羽球｜臨打團",level:"程度不限",district:"龍潭區",place:"龍潭中豐羽球館",url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FAucSnchNXY7zp7u3PQDzcKq-B9yJymBKwt1D7w%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"},
-  {day:5,time:"22:00-01:00",period:"晚上",name:"巧鬍羽球｜週五夜貓團",level:"程度不限",district:"龍潭區",place:"龍潭中豐羽球館",url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FAucSnchNXY7zp7u3PQDzcKq-B9yJymBKwt1D7w%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"},
-  
-  {day:2,time:"19:00-22:00",period:"晚上",name:"Sherry 排點團",level:"4-7級",district:"龍潭區",place:"龍潭中豐羽球館",url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FIPTYb9mVPmskMynOQFLYJmUeF3qfxACoHrnhLQ%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"},
-  {day:6,time:"09:00-12:00",period:"上午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FIPTYb9mVPmskMynOQFLYJmUeF3qfxACoHrnhLQ%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"},
-  {day:6,time:"14:00-17:00",period:"下午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FIPTYb9mVPmskMynOQFLYJmUeF3qfxACoHrnhLQ%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"},
-  {day:7,time:"09:00-12:00",period:"上午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FIPTYb9mVPmskMynOQFLYJmUeF3qfxACoHrnhLQ%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"},
-  {day:7,time:"14:00-17:00",period:"下午",name:"Sherry 排點團",level:"新手～初中階",district:"龍潭區",place:"龍潭中豐羽球館",url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FIPTYb9mVPmskMynOQFLYJmUeF3qfxACoHrnhLQ%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"},
 
-  {day:3,time:"13:30-16:30",period:"下午",name:"羽過天晴",level:"新手～初中階",district:"平鎮區",place:"高飛羽球正義館｜正義路156號",url:"https://line.me/ti/g2/iXDYNNaAI1487udBcEb-HYABdsfLZGNrMQn7wA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
-  
-  ...[5,6].map(d=>({day:d,time:"19:00-22:00",period:"晚上",name:"雪莉臨打團",level:"3-7級",district:"中壢區",place:"飆球綜合性球類運動球館",url:"https://line.me/ti/g2/Dt7EAXVLBnDftBLsjK2fVymgnGigEnhJs5tMpQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"})),
- 
-  ...[2,4,6].map(d=>({day:d,time:"20:00-22:00",period:"晚上",name:"名揚國際羽球",level:"程度不限",district:"楊梅區",place:"楊梅體育園區",url:"https://line.me/ti/g2/dCZdkHwBa-zELptR7nHqbZheAIL9hjkYjamWeA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"})),
-  {day:7,time:"14:00-18:00",period:"下午",name:"名揚國際羽球",level:"程度不限",district:"中壢區",place:"中壢國民運動中心",url:"https://line.me/ti/g2/dCZdkHwBa-zELptR7nHqbZheAIL9hjkYjamWeA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
-  
-  {day:2,time:"10:00-12:00",period:"上午",name:"喬瘋羽球",level:"程度不限",district:"蘆竹區",place:"富暘羽球運動中心｜蘆竹區中正北路599號",url:"缺"},
-  {day:7,time:"19:00-22:00",period:"晚上",name:"喬瘋羽球",level:"男6級UP+女4級UP",district:"蘆竹區",place:"富暘羽球運動中心｜蘆竹區中正北路599號",url:"缺"},
-  
-  {day:1,time:"18:00-20:00",period:"晚上",name:"Gmeimei暢打團",level:"新手",district:"蘆竹區",place:"YT SPORT 文中館",url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
-  {day:1,time:"20:00-22:00",period:"晚上",name:"Gmeimei暢打團",level:"新手～初階",district:"蘆竹區",place:"YT SPORT 文中館",url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
-  {day:3,time:"18:00-23:00",period:"晚上",name:"Gmeimei暢打團",level:"新手～初階",district:"蘆竹區",place:"YT SPORT 文中館",url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
-  {day:5,time:"20:00-23:00",period:"晚上",name:"Gmeimei暢打團",level:"新手～初階",district:"中壢區",place:"YT SPORT 吉林館",url:"https://line.me/ti/g2/6oGrDbd4dUSb6yx8q2XaL-IQAcdAth3RbG8Lkg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
-  {day:6,time:"13:00-16:00",period:"下午",name:"Gmeimei暢打團",level:"新手～初階",district:"中壢區",place:"YT SPORT 吉林館",url:"https://line.me/ti/g2/6oGrDbd4dUSb6yx8q2XaL-IQAcdAth3RbG8Lkg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
-  {day:7,time:"08:00-11:00",period:"上午",name:"Gmeimei暢打團",level:"新手",district:"蘆竹區",place:"YT SPORT 文中館",url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
-  {day:7,time:"11:00-13:00",period:"上午",name:"Gmeimei暢打團",level:"新手～初階",district:"蘆竹區",place:"YT SPORT 文中館",url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"},
-  
+  {
+    day:6,
+    time:"14:00-17:00",
+    period:"下午",
+    name:"QQ梅子飯團｜全女團",
+    level:"初中階",
+    district:"龍潭區",
+    place:"龍潭中豐羽球館",
+    url:"缺"
+  },
 
+  {
+    day:1,
+    time:"19:00-22:00",
+    period:"晚上",
+    name:"巧鬍羽球｜臨打團",
+    level:"程度不限",
+    district:"龍潭區",
+    place:"龍潭中豐羽球館",
+    url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FAucSnchNXY7zp7u3PQDzcKq-B9yJymBKwt1D7w%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"
+  },
 
+  {
+    day:5,
+    time:"22:00-01:00",
+    period:"晚上",
+    name:"巧鬍羽球｜週五夜貓團",
+    level:"程度不限",
+    district:"龍潭區",
+    place:"龍潭中豐羽球館",
+    url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FAucSnchNXY7zp7u3PQDzcKq-B9yJymBKwt1D7w%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"
+  },
 
+  {
+    day:2,
+    time:"19:00-22:00",
+    period:"晚上",
+    name:"Sherry 排點團",
+    level:"4-7級",
+    district:"龍潭區",
+    place:"龍潭中豐羽球館",
+    url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FIPTYb9mVPmskMynOQFLYJmUeF3qfxACoHrnhLQ%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"
+  },
 
+  {
+    day:6,
+    time:"09:00-12:00",
+    period:"上午",
+    name:"Sherry 排點團",
+    level:"新手～初中階",
+    district:"龍潭區",
+    place:"龍潭中豐羽球館",
+    url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FIPTYb9mVPmskMynOQFLYJmUeF3qfxACoHrnhLQ%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"
+  },
 
-  ...[1,2,4,5,7].map(d=>({day:d,time:"13:00-16:00",period:"下午",name:"莎豬小隊｜歡樂羽球團",level:"3-7級",district:"中壢區",place:"中壢羽宙人球館｜培英路169號",url:"https://line.me/ti/g2/2npdIzOVS_mXwzUcMzdLerYIdn1Cy7CSmDP8_A?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"})),
-  ...[2,4].map(d=>({day:d,time:"13:30-16:30",period:"下午",name:"高飛米線團",level:"缺",district:"平鎮區",place:"高飛羽球正義館｜正義路156號",url:"https://line.me/ti/g2/iXDYNNaAI1487udBcEb-HYABdsfLZGNrMQn7wA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"})),
-  ...[1,3,5,6].map(d=>({day:d,time:"09:00-12:00",period:"上午",name:"羽嘉同行",level:"程度不限",district:"桃園區",place:"77桃園羽球館",url:"https://line.me/ti/g2/uBvN8UZ5f_zhoYh79WsxtCf9K0sdUtE7bqQicQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"})),
-  {day:6,time:"20:00-23:00",period:"晚上",name:"櫃檯小弟暢打團",level:"4-7級",district:"蘆竹區",place:"YT SPORT 文中館",url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"}
+  {
+    day:6,
+    time:"14:00-17:00",
+    period:"下午",
+    name:"Sherry 排點團",
+    level:"新手～初中階",
+    district:"龍潭區",
+    place:"龍潭中豐羽球館",
+    url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FIPTYb9mVPmskMynOQFLYJmUeF3qfxACoHrnhLQ%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"
+  },
+
+  {
+    day:7,
+    time:"09:00-12:00",
+    period:"上午",
+    name:"Sherry 排點團",
+    level:"新手～初中階",
+    district:"龍潭區",
+    place:"龍潭中豐羽球館",
+    url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FIPTYb9mVPmskMynOQFLYJmUeF3qfxACoHrnhLQ%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"
+  },
+
+  {
+    day:7,
+    time:"14:00-17:00",
+    period:"下午",
+    name:"Sherry 排點團",
+    level:"新手～初中階",
+    district:"龍潭區",
+    place:"龍潭中豐羽球館",
+    url:"https://l.threads.com/?u=https%3A%2F%2Fline.me%2Fti%2Fg2%2FIPTYb9mVPmskMynOQFLYJmUeF3qfxACoHrnhLQ%3Futm_source&e=AUDjusXPXS4uuheLeaws0UsKC2XB7XLgQp_tcrnJ3u5S2-jddhis0m1ZQ0T47LCyOyIkqFwz9sGyZHWU7sYz_uxKsktUXAY4R3EeR1uNufev3Srm22nipi3Z9Qrh1oOyZnREdIU"
+  },
+
+  {
+    day:3,
+    time:"13:30-16:30",
+    period:"下午",
+    name:"羽過天晴",
+    level:"新手～初中階",
+    district:"平鎮區",
+    place:"高飛羽球正義館｜正義路156號",
+    url:"https://line.me/ti/g2/iXDYNNaAI1487udBcEb-HYABdsfLZGNrMQn7wA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+  },
+
+  ...[5,6].map(d=>({
+    day:d,
+    time:"19:00-22:00",
+    period:"晚上",
+    name:"雪莉臨打團",
+    level:"3-7級",
+    district:"中壢區",
+    place:"飆球綜合性球類運動球館",
+    url:"https://line.me/ti/g2/Dt7EAXVLBnDftBLsjK2fVymgnGigEnhJs5tMpQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+  })),
+
+  ...[2,4,6].map(d=>({
+    day:d,
+    time:"20:00-22:00",
+    period:"晚上",
+    name:"名揚國際羽球",
+    level:"程度不限",
+    district:"楊梅區",
+    place:"楊梅體育園區",
+    url:"https://line.me/ti/g2/dCZdkHwBa-zELptR7nHqbZheAIL9hjkYjamWeA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+  })),
+
+  {
+    day:7,
+    time:"14:00-18:00",
+    period:"下午",
+    name:"名揚國際羽球",
+    level:"程度不限",
+    district:"中壢區",
+    place:"中壢國民運動中心",
+    url:"https://line.me/ti/g2/dCZdkHwBa-zELptR7nHqbZheAIL9hjkYjamWeA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+  },
+
+  {
+    day:2,
+    time:"10:00-12:00",
+    period:"上午",
+    name:"喬瘋羽球",
+    level:"程度不限",
+    district:"蘆竹區",
+    place:"富暘羽球運動中心｜蘆竹區中正北路599號",
+    url:"缺"
+  },
+
+  {
+    day:7,
+    time:"19:00-22:00",
+    period:"晚上",
+    name:"喬瘋羽球",
+    level:"男6級UP+女4級UP",
+    district:"蘆竹區",
+    place:"富暘羽球運動中心｜蘆竹區中正北路599號",
+    url:"缺"
+  },
+
+  {
+    day:1,
+    time:"18:00-20:00",
+    period:"晚上",
+    name:"Gmeimei暢打團",
+    level:"新手",
+    district:"蘆竹區",
+    place:"YT SPORT 文中館",
+    url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+  },
+
+  {
+    day:1,
+    time:"20:00-22:00",
+    period:"晚上",
+    name:"Gmeimei暢打團",
+    level:"新手～初階",
+    district:"蘆竹區",
+    place:"YT SPORT 文中館",
+    url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+  },
+
+  {
+    day:3,
+    time:"18:00-23:00",
+    period:"晚上",
+    name:"Gmeimei暢打團",
+    level:"新手～初階",
+    district:"蘆竹區",
+    place:"YT SPORT 文中館",
+    url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+  },
+
+  {
+    day:5,
+    time:"20:00-23:00",
+    period:"晚上",
+    name:"Gmeimei暢打團",
+    level:"新手～初階",
+    district:"中壢區",
+    place:"YT SPORT 吉林館",
+    url:"https://line.me/ti/g2/6oGrDbd4dUSb6yx8q2XaL-IQAcdAth3RbG8Lkg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+  },
+
+  {
+    day:6,
+    time:"13:00-16:00",
+    period:"下午",
+    name:"Gmeimei暢打團",
+    level:"新手～初階",
+    district:"中壢區",
+    place:"YT SPORT 吉林館",
+    url:"https://line.me/ti/g2/6oGrDbd4dUSb6yx8q2XaL-IQAcdAth3RbG8Lkg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+  },
+
+  {
+    day:7,
+    time:"08:00-11:00",
+    period:"上午",
+    name:"Gmeimei暢打團",
+    level:"新手",
+    district:"蘆竹區",
+    place:"YT SPORT 文中館",
+    url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+  },
+
+  {
+    day:7,
+    time:"11:00-13:00",
+    period:"上午",
+    name:"Gmeimei暢打團",
+    level:"新手～初階",
+    district:"蘆竹區",
+    place:"YT SPORT 文中館",
+    url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+  },
+
+  ...[1,2,4,5,7].map(d=>({
+    day:d,
+    time:"13:00-16:00",
+    period:"下午",
+    name:"莎豬小隊｜歡樂羽球團",
+    level:"3-7級",
+    district:"中壢區",
+    place:"中壢羽宙人球館｜培英路169號",
+    url:"https://line.me/ti/g2/2npdIzOVS_mXwzUcMzdLerYIdn1Cy7CSmDP8_A?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+  })),
+
+  ...[2,4].map(d=>({
+    day:d,
+    time:"13:30-16:30",
+    period:"下午",
+    name:"高飛米線團",
+    level:"缺",
+    district:"平鎮區",
+    place:"高飛羽球正義館｜正義路156號",
+    url:"https://line.me/ti/g2/iXDYNNaAI1487udBcEb-HYABdsfLZGNrMQn7wA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+  })),
+
+  ...[1,3,5,6].map(d=>({
+    day:d,
+    time:"09:00-12:00",
+    period:"上午",
+    name:"羽嘉同行",
+    level:"程度不限",
+    district:"桃園區",
+    place:"77桃園羽球館",
+    url:"https://line.me/ti/g2/uBvN8UZ5f_zhoYh79WsxtCf9K0sdUtE7bqQicQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+  })),
+
+  {
+    day:6,
+    time:"20:00-23:00",
+    period:"晚上",
+    name:"櫃檯小弟暢打團",
+    level:"4-7級",
+    district:"蘆竹區",
+    place:"YT SPORT 文中館",
+    url:"https://line.me/ti/g2/ibT260D9hRSMJXRm7ThrMUI_DKu8aR5kQIDCJw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+  }
+
 ];
 
+
+/* =========================================================
+   基本設定
+========================================================= */
+
 const dayNames = ["一","二","三","四","五","六","日"];
-const dayColors = ["#0f8a6b","#2a7fc4","#7a5cd6","#d9467a","#e0702a","#b8820f","#d4493d"];
+
+const dayColors = [
+  "#0f8a6b",
+  "#2a7fc4",
+  "#7a5cd6",
+  "#d9467a",
+  "#e0702a",
+  "#b8820f",
+  "#d4493d"
+];
+
 const venueOf = c => c.place.split("｜")[0];
 
 const groups = [
-  {key:"period",label:"時段",seg:true,options:["上午","下午","晚上"]},
-  {key:"level",label:"強度",options:["程度不限","新手","新手～初階","新手～初中階","初中階","3-7級","4-7級","男6級UP+女4級UP","中階以上"]},
-  {key:"day",label:"星期",seg:true,options:dayNames}
+  {
+    key:"period",
+    label:"時段",
+    seg:true,
+    options:["上午","下午","晚上"]
+  },
+
+  {
+    key:"level",
+    label:"強度",
+    options:[
+      "程度不限",
+      "新手",
+      "新手～初階",
+      "新手～初中階",
+      "初中階",
+      "3-7級",
+      "4-7級",
+      "男6級UP+女4級UP",
+      "中階以上"
+    ]
+  },
+
+  {
+    key:"day",
+    label:"星期",
+    seg:true,
+    options:dayNames
+  }
 ];
 
 const levelColor = {
-  "新手":"var(--l1)","新手～初階":"var(--l1)","男6級UP+女4級UP":"var(--l3)","中階以上":"var(--l3)","初階～初中階":"var(--l1)","新手～初中階":"var(--l1)",
-  "初中階":"var(--l2)","3-7級":"var(--l2)","4-7級":"var(--l2)","程度不限":"var(--l0)","缺":"var(--l0)"
+  "新手":"var(--l1)",
+  "新手～初階":"var(--l1)",
+  "男6級UP+女4級UP":"var(--l3)",
+  "中階以上":"var(--l3)",
+  "初階～初中階":"var(--l1)",
+  "新手～初中階":"var(--l1)",
+  "初中階":"var(--l2)",
+  "3-7級":"var(--l2)",
+  "4-7級":"var(--l2)",
+  "程度不限":"var(--l0)",
+  "缺":"var(--l0)"
 };
 
-const state = {period:"全部",level:"全部",day:"全部"};
+const state = {
+  period:"全部",
+  level:"全部",
+  day:"全部"
+};
 
-const districts = ["桃園區","中壢區","平鎮區","八德區","楊梅區","蘆竹區","大溪區","龍潭區","龜山區","大園區","觀音區","新屋區","復興區"];
+const districts = [
+  "桃園區",
+  "中壢區",
+  "平鎮區",
+  "八德區",
+  "楊梅區",
+  "蘆竹區",
+  "大溪區",
+  "龍潭區",
+  "龜山區",
+  "大園區",
+  "觀音區",
+  "新屋區",
+  "復興區"
+];
+
 const venues = [...new Set(classes.map(venueOf))];
 
 const dds = [
-  {key:"district",label:"地區",all:"全部地區",items:districts,sel:new Set(),get:c=>c.district},
-  {key:"venue",label:"球館",all:"全部球館",items:venues,sel:new Set(),get:venueOf}
+  {
+    key:"district",
+    label:"地區",
+    all:"全部地區",
+    items:districts,
+    sel:new Set(),
+    get:c=>c.district
+  },
+
+  {
+    key:"venue",
+    label:"球館",
+    all:"全部球館",
+    items:venues,
+    sel:new Set(),
+    get:venueOf
+  }
 ];
 
+
+/* =========================================================
+   今天
+========================================================= */
+
 const todayIdx = (new Date().getDay()+6)%7+1;
+
 const fmt = t => t.replace("-","–");
+
+
+/* =========================================================
+   DOM
+========================================================= */
 
 const $filters = document.getElementById("filters");
 const $week = document.getElementById("week");
@@ -354,212 +1454,1009 @@ const $count = document.getElementById("count");
 const $tabs = document.getElementById("tabs");
 const $dds = document.getElementById("dds");
 
-/* ===== 篩選器 ===== */
 const $reset = document.getElementById("reset");
-const chev = `<svg class="chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>`;
+
+const chev = `
+<svg
+  class="chev"
+  viewBox="0 0 24 24"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2.2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true">
+  <path d="m6 9 6 6 6-6"/>
+</svg>`;
+
+
+/* =========================================================
+   篩選器
+========================================================= */
 
 function renderFilters(){
+
   groups.forEach(g=>{
+
     const row = document.createElement("div");
+
     row.className = "frow";
-    row.innerHTML = `<span class="fl">${g.label}</span>`;
+
+    row.innerHTML = `
+      <span class="fl">${g.label}</span>
+    `;
+
     const box = document.createElement("div");
+
     box.className = "fopts" + (g.seg ? " seg" : "");
+
     ["全部",...g.options].forEach(opt=>{
+
       const b = document.createElement("button");
+
       b.className = "chip";
+
       b.textContent = opt;
+
       b.dataset.k = g.key;
+
       b.dataset.v = opt;
-      b.onclick = ()=>{state[g.key]=opt;renderWeek(true)};
+
+      b.onclick = ()=>{
+
+        state[g.key] = opt;
+
+        renderWeek(true);
+
+      };
+
       box.appendChild(b);
+
     });
+
     row.appendChild(box);
+
     $filters.appendChild(row);
+
   });
+
 }
 
-/* ===== 下拉欄位（地區 / 球館） ===== */
+
+/* =========================================================
+   下拉選單
+========================================================= */
+
 function updateDD(d){
+
   const n = d.sel.size;
-  d.btn.querySelector(".v").textContent = n===0 ? d.all : n===1 ? [...d.sel][0] : `已選 ${n} 個`;
+
+  d.btn.querySelector(".v").textContent =
+    n === 0
+      ? d.all
+      : n === 1
+        ? [...d.sel][0]
+        : `已選 ${n} 個`;
+
   const badge = d.btn.querySelector(".n");
-  badge.hidden = n<2;
+
+  badge.hidden = n < 2;
+
   badge.textContent = n;
-  d.box.classList.toggle("on", n>0);
+
+  d.box.classList.toggle("on",n > 0);
 }
+
+
 function closeDD(except){
-  dds.forEach(o=>{ if(o!==except){o.panel.hidden=true;o.btn.setAttribute("aria-expanded","false")} });
+
+  dds.forEach(o=>{
+
+    if(o !== except){
+
+      o.panel.hidden = true;
+
+      o.btn.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    }
+
+  });
+
 }
+
+
 dds.forEach(d=>{
+
   d.box = document.createElement("div");
+
   d.box.className = "dd";
-  d.box.innerHTML = `<button class="field" aria-expanded="false"><span class="k">${d.label}</span><span class="v"></span><em class="n" hidden></em>${chev}</button>`;
+
+  d.box.innerHTML = `
+    <button
+      class="field"
+      aria-expanded="false">
+
+      <span class="k">${d.label}</span>
+
+      <span class="v"></span>
+
+      <em class="n" hidden></em>
+
+      ${chev}
+
+    </button>
+  `;
+
   d.btn = d.box.querySelector(".field");
 
+
   d.panel = document.createElement("div");
+
   d.panel.className = "panel";
+
   d.panel.hidden = true;
+
   d.panel.innerHTML = `
-    <div class="opts">${d.items.map(v=>`<label class="opt"><input type="checkbox" value="${v}">${v}</label>`).join("")}</div>
-    <div class="pfoot"><button class="clr">清除</button><button class="ok">完成</button></div>`;
+
+    <div class="opts">
+
+      ${d.items.map(v=>`
+
+        <label class="opt">
+
+          <input
+            type="checkbox"
+            value="${v}">
+
+          ${v}
+
+        </label>
+
+      `).join("")}
+
+    </div>
+
+    <div class="pfoot">
+
+      <button class="clr">
+        清除
+      </button>
+
+      <button class="ok">
+        完成
+      </button>
+
+    </div>
+  `;
+
 
   d.btn.onclick = ()=>{
+
     const open = d.panel.hidden;
+
     closeDD(d);
+
     d.panel.hidden = !open;
-    d.btn.setAttribute("aria-expanded",String(open));
+
+    d.btn.setAttribute(
+      "aria-expanded",
+      String(open)
+    );
+
   };
+
+
   d.panel.addEventListener("change",e=>{
-    e.target.checked ? d.sel.add(e.target.value) : d.sel.delete(e.target.value);
+
+    e.target.checked
+      ? d.sel.add(e.target.value)
+      : d.sel.delete(e.target.value);
+
     renderWeek(true);
+
   });
+
+
   d.panel.querySelector(".clr").onclick = ()=>{
+
     d.sel.clear();
-    d.panel.querySelectorAll("input").forEach(i=>i.checked=false);
+
+    d.panel
+      .querySelectorAll("input")
+      .forEach(i=>i.checked=false);
+
     renderWeek(true);
+
   };
-  d.panel.querySelector(".ok").onclick = ()=>closeDD();
+
+
+  d.panel.querySelector(".ok").onclick = ()=>{
+
+    closeDD();
+
+  };
+
 });
+
+
 dds.forEach(d=>$dds.appendChild(d.box));
+
 dds.forEach(d=>$dds.appendChild(d.panel));
-document.addEventListener("click",e=>{ if(!e.target.closest(".dds")) closeDD(); });
 
-/* 重設 + 同步畫面狀態 */
-$reset.onclick = ()=>{
-  Object.keys(state).forEach(k=>state[k]="全部");
-  dds.forEach(d=>{d.sel.clear();d.panel.querySelectorAll("input").forEach(i=>i.checked=false)});
-  renderWeek(true);
-};
-function syncUI(){
-  $filters.querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed",state[b.dataset.k]===b.dataset.v));
-  dds.forEach(updateDD);
-  const n = Object.values(state).filter(v=>v!=="全部").length + dds.filter(d=>d.sel.size).length;
-  $reset.hidden = n===0;
-  $reset.textContent = `重設（${n}）`;
-}
 
-/* ===== 週曆 ===== */
-let curDays = [1,2,3,4,5,6,7];
+document.addEventListener("click",e=>{
 
-function renderWeek(resetScroll){
-  syncUI();
-  const filtered = classes.filter(c =>
-    (state.period==="全部" || c.period===state.period) &&
-    (state.level==="全部" || c.level===state.level) &&
-    (state.day==="全部" || dayNames[c.day-1]===state.day) &&
-    dds.every(d=>d.sel.size===0 || d.sel.has(d.get(c)))
-  );
+  if(!e.target.closest(".dds")){
 
-  $count.innerHTML = `共<b>${filtered.length}</b>個團`;
+    closeDD();
 
-  if(!filtered.length){
-    $tabs.hidden = true;
-    $week.innerHTML = `<div class="none">沒有符合條件的開團，請調整篩選。</div>`;
-    return;
   }
 
-  curDays = state.day==="全部" ? [1,2,3,4,5,6,7] : [dayNames.indexOf(state.day)+1];
+});
 
-  /* 頁籤 */
+
+/* =========================================================
+   重設
+========================================================= */
+
+$reset.onclick = ()=>{
+
+  Object.keys(state).forEach(
+    k=>state[k]="全部"
+  );
+
+  dds.forEach(d=>{
+
+    d.sel.clear();
+
+    d.panel
+      .querySelectorAll("input")
+      .forEach(i=>i.checked=false);
+
+  });
+
+  renderWeek(true);
+
+};
+
+
+/* =========================================================
+   UI 同步
+========================================================= */
+
+function syncUI(){
+
+  $filters
+    .querySelectorAll(".chip")
+    .forEach(b=>{
+
+      b.setAttribute(
+        "aria-pressed",
+        state[b.dataset.k] === b.dataset.v
+      );
+
+    });
+
+
+  dds.forEach(updateDD);
+
+
+  const n =
+    Object.values(state)
+      .filter(v=>v!=="全部")
+      .length
+    +
+    dds.filter(d=>d.sel.size).length;
+
+
+  $reset.hidden = n === 0;
+
+  $reset.textContent = `重設（${n}）`;
+
+}
+
+
+/* =========================================================
+   週曆
+========================================================= */
+
+let curDays = [1,2,3,4,5,6,7];
+
+
+/*
+  重要：
+  renderWeek(true) 只在「篩選條件改變」時
+  主動跳到指定星期。
+
+  之後單純上下滑動頁面，
+  不會再因為 resize 而重新跳轉。
+*/
+
+function renderWeek(resetScroll){
+
+  syncUI();
+
+
+  const filtered = classes.filter(c =>
+
+    (state.period==="全部" ||
+      c.period===state.period)
+
+    &&
+
+    (state.level==="全部" ||
+      c.level===state.level)
+
+    &&
+
+    (state.day==="全部" ||
+      dayNames[c.day-1]===state.day)
+
+    &&
+
+    dds.every(d=>
+      d.sel.size===0 ||
+      d.sel.has(d.get(c))
+    )
+
+  );
+
+
+  $count.innerHTML =
+    `共<b>${filtered.length}</b>個團`;
+
+
+  if(!filtered.length){
+
+    $tabs.hidden = true;
+
+    $week.innerHTML = `
+      <div class="none">
+        沒有符合條件的開團，請調整篩選。
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  curDays =
+    state.day==="全部"
+      ? [1,2,3,4,5,6,7]
+      : [dayNames.indexOf(state.day)+1];
+
+
+  /* ---------- 頁籤 ---------- */
+
   $tabs.hidden = curDays.length===1;
+
+
   $tabs.innerHTML = curDays.map(d=>{
-    const n = filtered.filter(c=>c.day===d).length;
-    return `<button class="tab${d===todayIdx?" now":""}" style="--dc:${dayColors[d-1]}" role="tab" data-d="${d}" aria-selected="false"><span>週${dayNames[d-1]}</span><i>${n}</i></button>`;
+
+    const n =
+      filtered.filter(c=>c.day===d).length;
+
+    return `
+      <button
+        class="tab${d===todayIdx?" now":""}"
+        style="--dc:${dayColors[d-1]}"
+        role="tab"
+        data-d="${d}"
+        aria-selected="false">
+
+        <span>
+          週${dayNames[d-1]}
+        </span>
+
+        <i>
+          ${n}
+        </i>
+
+      </button>
+    `;
+
   }).join("");
+
+
+  /* ---------- 週曆 ---------- */
 
   $week.innerHTML = curDays.map(d=>{
-    const items = filtered.filter(c=>c.day===d).sort((a,b)=>a.time.localeCompare(b.time));
-    const body = items.length ? items.map(c=>`
-      <button class="cls" data-i="${classes.indexOf(c)}" style="--c:${levelColor[c.level]||"var(--l0)"}">
-        <div class="t">${fmt(c.time)}</div>
-        <div class="n">${c.name}</div>
-        <div class="p">${c.place.replace("｜"," ・ ")}</div>
-        <div class="l">${c.level}</div>
-      </button>`).join("") : `<div class="empty">本日無符合的團</div>`;
+
+    const items =
+      filtered
+        .filter(c=>c.day===d)
+        .sort((a,b)=>a.time.localeCompare(b.time));
+
+
+    const body = items.length
+
+      ? items.map(c=>`
+
+        <button
+          class="cls"
+          data-i="${classes.indexOf(c)}"
+          style="--c:${levelColor[c.level]||"var(--l0)"}">
+
+          <div class="t">
+            ${fmt(c.time)}
+          </div>
+
+          <div class="n">
+            ${c.name}
+          </div>
+
+          <div class="p">
+            ${c.place.replace("｜"," ・ ")}
+          </div>
+
+          <div class="l">
+            ${c.level}
+          </div>
+
+        </button>
+
+      `).join("")
+
+      : `
+        <div class="empty">
+          本日無符合的團
+        </div>
+      `;
+
+
     return `
-      <section class="day${d===todayIdx?" today":""}" data-d="${d}" style="--dc:${dayColors[d-1]}">
-        <h2><span>週${dayNames[d-1]} <small>${items.length} 團</small></span>${d===todayIdx?`<span class="today-tag">今天</span>`:""}</h2>
-        <div class="list">${body}</div>
-      </section>`;
+
+      <section
+        class="day${d===todayIdx?" today":""}"
+        data-d="${d}"
+        style="--dc:${dayColors[d-1]}">
+
+        <h2>
+
+          <span>
+            週${dayNames[d-1]}
+            <small>
+              ${items.length} 團
+            </small>
+          </span>
+
+          ${
+            d===todayIdx
+              ? `<span class="today-tag">今天</span>`
+              : ""
+          }
+
+        </h2>
+
+        <div class="list">
+          ${body}
+        </div>
+
+      </section>
+
+    `;
+
   }).join("");
 
-  if(resetScroll) goTo(curDays.includes(todayIdx)?todayIdx:curDays[0],false);
+
+  /*
+    只有這裡才會主動跳到指定星期。
+
+    如果使用者點「週三」，
+    就停留在週三。
+
+    不會再因為手機 resize
+    自動回到今天。
+  */
+
+  if(resetScroll){
+
+    const target =
+      state.day !== "全部"
+        ? curDays[0]
+        : (
+            curDays.includes(todayIdx)
+              ? todayIdx
+              : curDays[0]
+          );
+
+    goTo(target,false);
+
+  }
+
+
   syncTab();
+
 }
 
-/* 頁籤 ←→ 週曆 同步 */
+
+/* =========================================================
+   頁籤 ↔ 週曆
+========================================================= */
+
 function goTo(d,smooth){
-  const el = $week.querySelector(`.day[data-d="${d}"]`);
-  if(el) $week.scrollTo({left:el.offsetLeft,behavior:smooth?"smooth":"auto"});
-}
-function syncTab(){
-  const days = [...$week.querySelectorAll(".day")];
-  if(!days.length) return;
-  let best = days[0];
-  days.forEach(el=>{ if(Math.abs(el.offsetLeft-$week.scrollLeft) < Math.abs(best.offsetLeft-$week.scrollLeft)) best = el; });
-  $tabs.querySelectorAll(".tab").forEach(t=>{
-    const on = t.dataset.d===best.dataset.d;
-    t.setAttribute("aria-selected",on);
-    if(on) t.scrollIntoView({inline:"center",block:"nearest"});
+
+  const el =
+    $week.querySelector(
+      `.day[data-d="${d}"]`
+    );
+
+  if(!el) return;
+
+
+  /*
+    使用 scrollLeft，而不是 offsetLeft
+    讓手機橫向週曆定位更穩定。
+  */
+
+  const left = el.offsetLeft;
+
+
+  $week.scrollTo({
+    left:left,
+    behavior:smooth ? "smooth" : "auto"
   });
+
 }
+
+
+function syncTab(){
+
+  const days =
+    [...$week.querySelectorAll(".day")];
+
+
+  if(!days.length) return;
+
+
+  let best = days[0];
+
+
+  days.forEach(el=>{
+
+    if(
+      Math.abs(
+        el.offsetLeft - $week.scrollLeft
+      )
+      <
+      Math.abs(
+        best.offsetLeft - $week.scrollLeft
+      )
+    ){
+
+      best = el;
+
+    }
+
+  });
+
+
+  $tabs
+    .querySelectorAll(".tab")
+    .forEach(t=>{
+
+      const on =
+        t.dataset.d === best.dataset.d;
+
+      t.setAttribute(
+        "aria-selected",
+        on
+      );
+
+
+      if(on){
+
+        t.scrollIntoView({
+          inline:"center",
+          block:"nearest"
+        });
+
+      }
+
+    });
+
+}
+
+
 let raf = 0;
-$week.addEventListener("scroll",()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(syncTab)},{passive:true});
-$tabs.addEventListener("click",e=>{
-  const t = e.target.closest(".tab");
-  if(t) goTo(+t.dataset.d,true);
-});
 
-/* ===== 詳細視窗 ===== */
-const $dlg = document.getElementById("dlg");
-$week.addEventListener("click",e=>{
-  const b = e.target.closest("button.cls");
-  if(!b) return;
-  const c = classes[b.dataset.i];
-  const color = levelColor[c.level]||"var(--l0)";
-  const [venue,addr] = c.place.split("｜");
-  const dn = dayNames[c.day-1];
 
-  $dlg.innerHTML = `
-    <div class="dlg" style="--c:${color}">
-      <div class="head">
-        <h3>${c.name}</h3>
-        <div class="when">週${dn}　${fmt(c.time)}</div>
+$week.addEventListener(
+  "scroll",
+  ()=>{
+
+    cancelAnimationFrame(raf);
+
+    raf =
+      requestAnimationFrame(syncTab);
+
+  },
+  {passive:true}
+);
+
+
+$tabs.addEventListener(
+  "click",
+  e=>{
+
+    const t =
+      e.target.closest(".tab");
+
+    if(t){
+
+      goTo(
+        +t.dataset.d,
+        true
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   詳細視窗
+========================================================= */
+
+const $dlg =
+  document.getElementById("dlg");
+
+
+$week.addEventListener(
+  "click",
+  e=>{
+
+    const b =
+      e.target.closest("button.cls");
+
+    if(!b) return;
+
+
+    const c =
+      classes[b.dataset.i];
+
+
+    const color =
+      levelColor[c.level] || "var(--l0)";
+
+
+    const [venue,addr] =
+      c.place.split("｜");
+
+
+    const dn =
+      dayNames[c.day-1];
+
+
+    $dlg.innerHTML = `
+
+      <div
+        class="dlg"
+        style="--c:${color}">
+
+        <div class="head">
+
+          <h3>
+            ${c.name}
+          </h3>
+
+          <div class="when">
+            週${dn}　${fmt(c.time)}
+          </div>
+
+        </div>
+
+
+        <dl>
+
+          <dt>球館</dt>
+
+          <dd>
+            ${c.district}・${venue}
+          </dd>
+
+
+          ${
+            addr
+              ? `
+                <dt>地址</dt>
+                <dd>${addr}</dd>
+              `
+              : ""
+          }
+
+
+          <dt>時間</dt>
+
+          <dd>
+            週${dn} ${c.time}
+          </dd>
+
+
+          <dt>程度</dt>
+
+          <dd>
+
+            <span
+              class="badge"
+              style="background:${color}">
+
+              ${c.level}
+
+            </span>
+
+          </dd>
+
+
+          <dt>連結</dt>
+
+          <dd>
+
+            ${
+              c.url==="缺"
+
+                ? "缺"
+
+                : `
+                  <a
+                    class="lnk"
+                    href="${c.url}"
+                    target="_blank"
+                    rel="noopener">
+
+                    ${c.url}
+
+                  </a>
+                `
+            }
+
+          </dd>
+
+        </dl>
+
+
+        <div class="acts">
+
+          ${
+            c.url==="缺"
+
+              ? `
+                <button
+                  id="close"
+                  style="width:100%">
+
+                  關閉
+
+                </button>
+              `
+
+              : `
+
+                <a
+                  href="${c.url}"
+                  target="_blank"
+                  rel="noopener">
+
+                  前往報名
+
+                </a>
+
+                <button id="close">
+                  關閉
+                </button>
+
+              `
+          }
+
+        </div>
+
       </div>
-      <dl>
-        <dt>球館</dt><dd>${c.district}・${venue}</dd>
-        ${addr?`<dt>地址</dt><dd>${addr}</dd>`:""}
-        <dt>時間</dt><dd>週${dn} ${c.time}</dd>
-        <dt>程度</dt><dd><span class="badge" style="background:${color}">${c.level}</span></dd>
-        <dt>連結</dt><dd>${c.url==="缺"?"缺":`<a class="lnk" href="${c.url}" target="_blank" rel="noopener">${c.url}</a>`}</dd>
-      </dl>
-      <div class="acts">
-        ${c.url==="缺"?`<button id="close" style="width:100%">關閉</button>`
-          :`<a href="${c.url}" target="_blank" rel="noopener">前往報名</a><button id="close">關閉</button>`}
-      </div>
-    </div>`;
-  $dlg.showModal();
-  document.getElementById("close").onclick = ()=>$dlg.close();
-});
-$dlg.addEventListener("click",e=>{ if(e.target===$dlg) $dlg.close(); });
 
-/* ===== 亮色 / 深色 ===== */
-const root = document.documentElement;
+    `;
+
+
+    $dlg.showModal();
+
+
+    document.getElementById(
+      "close"
+    ).onclick = ()=>$dlg.close();
+
+  }
+);
+
+
+$dlg.addEventListener(
+  "click",
+  e=>{
+
+    if(e.target === $dlg){
+
+      $dlg.close();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   亮色 / 深色
+========================================================= */
+
+const root =
+  document.documentElement;
+
+
 function setTheme(t,save){
-  root.setAttribute("data-theme",t);
-  document.getElementById("themeSwitch").setAttribute("aria-checked",t==="dark");
-  if(save){ try{localStorage.setItem("theme",t)}catch(e){} }
-}
-let saved = null;
-try{saved = localStorage.getItem("theme")}catch(e){}
-setTheme(saved || (matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),false);
-document.getElementById("themeSwitch").onclick = ()=>setTheme(root.getAttribute("data-theme")==="dark"?"light":"dark",true);
 
-/* ===== 初始化 ===== */
+  root.setAttribute(
+    "data-theme",
+    t
+  );
+
+
+  document
+    .getElementById("themeSwitch")
+    .setAttribute(
+      "aria-checked",
+      t==="dark"
+    );
+
+
+  if(save){
+
+    try{
+
+      localStorage.setItem(
+        "theme",
+        t
+      );
+
+    }catch(e){}
+
+  }
+
+}
+
+
+let saved = null;
+
+
+try{
+
+  saved =
+    localStorage.getItem("theme");
+
+}catch(e){}
+
+
+setTheme(
+  saved ||
+  (
+    matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches
+      ? "dark"
+      : "light"
+  ),
+  false
+);
+
+
+document
+  .getElementById("themeSwitch")
+  .onclick = ()=>{
+
+    setTheme(
+      root.getAttribute("data-theme")==="dark"
+        ? "light"
+        : "dark",
+      true
+    );
+
+  };
+
+
+/* =========================================================
+   初始化
+========================================================= */
+
 renderFilters();
+
 renderWeek(true);
-addEventListener("resize",()=>goTo(curDays.includes(todayIdx)?todayIdx:curDays[0],false));
+
+
+/*
+  ★ 這裡是這次修正的重點 ★
+
+  原本：
+
+  addEventListener("resize",()=>{
+    goTo(
+      curDays.includes(todayIdx)
+        ? todayIdx
+        : curDays[0],
+      false
+    );
+  });
+
+  手機上下滑動時，
+  Safari / Chrome 可能因網址列伸縮觸發 resize，
+  因此導致週曆被強制跳回今天。
+
+  現在改成：
+  只有「真正改變螢幕寬度」時才重新定位。
+
+  這樣手機上下滑動不會再干擾目前的星期。
+*/
+
+let lastWidth = window.innerWidth;
+
+window.addEventListener(
+  "resize",
+  ()=>{
+
+    const newWidth =
+      window.innerWidth;
+
+
+    /*
+      手機上下滑動造成的 resize
+      通常只是高度改變，
+      寬度沒有改變。
+
+      所以只有寬度真的變化，
+      才重新處理版面。
+    */
+
+    if(newWidth === lastWidth){
+
+      return;
+
+    }
+
+
+    lastWidth = newWidth;
+
+
+    /*
+      寬度真的變化，例如：
+
+      手機旋轉
+      平板切換
+      桌面視窗縮放
+
+      此時重新定位目前正在看的星期。
+
+      注意：
+      不再強制跳「今天」。
+    */
+
+    const target =
+      state.day !== "全部"
+        ? curDays[0]
+        : curDays.includes(todayIdx)
+          ? todayIdx
+          : curDays[0];
+
+
+    requestAnimationFrame(
+      ()=>goTo(target,false)
+    );
+
+  }
+);
+
 </script>
+
 </body>
 </html>
+```
